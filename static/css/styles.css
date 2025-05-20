@@ -1,0 +1,101 @@
+/* ---------------- 공통 기본 설정 ---------------- */
+body {
+    font-family: 'Segoe UI', 'Noto Sans KR', sans-serif;
+    background-color: #f0f9ff;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ---------------- 상단 로그인 / 회원가입 ---------------- */
+.user-menu .nav-link {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    color: #666 !important;
+}
+.divider {
+    color: #999;
+    margin: 0 6px;
+    font-size: 0.9rem;
+}
+
+/* ---------------- 중단 메뉴 (어촌귀어란? 등) ---------------- */
+.main-menu {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.main-menu .nav-link {
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+}
+
+.main-menu .btn {
+    font-weight: 500;
+    border-radius: 20px;
+}
+
+.main-menu .divider {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1;
+    padding: 0 0.5rem;
+    display: inline-block;
+}
+
+/* ---------------- 버튼 스타일 (바다 느낌) ---------------- */
+.btn-primary {
+    background-color: #0077b6;
+    border: none;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #00b4d8;
+    color: white;
+}
+
+/* ---------------- 카드 / 뉴스 영역 스타일 ---------------- */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border: none;
+}
+
+.card-title {
+    color: #0077b6;
+    font-weight: bold;
+}
+
+.card-header {
+    background-color: #caf0f8;
+    font-weight: bold;
+    color: #023e8a;
+}
+
+.card-body {
+    background-color: #ffffff;
+}
+
+/* ---------------- 푸터 ---------------- */
+footer {
+    background-color: #0077b6;
+    color: #ffffff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+/* ---------------- login.html ---------------- */
+.card {
+    border-radius: 12px;
+    background-color: #ffffff;
+}
+
+.card h3 {
+    color: #0077b6;
+}
