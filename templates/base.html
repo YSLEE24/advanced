@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <!-- logo -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -23,6 +23,12 @@
             {% if session.get('user_id') %}
                 <!-- 회원정보 표시 -->
                  <div class="d-flex align-items-center gap-2">
+                    <li class="nav-item">
+                        <a class="nav-link small text-secondary px-2" href="#">챗봇</a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link text-muted px-1">|</span>
+                    </li>
                     <img src="{{ session.get('profile_image') or url_for('static', filename='images/default_profile.png') }}"
                         alt="프로필 이미지"
                         class="rounded-circle"
@@ -33,6 +39,12 @@
             {% else %}
                 <!-- 회원정보가 없어서 로그인/회원가입 버튼 등장-->
                 <ul class="navbar-nav flex-row align-items-center user-menu">
+                    <li class="nav-item">
+                        <a class="nav-link small text-secondary px-2" href="#">챗봇</a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link text-muted px-1">|</span>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link small text-secondary px-2" href="{{ url_for('auth.login') }}">로그인</a>
                     </li>
@@ -47,23 +59,29 @@
         </div>
       </nav>
 
-    <!-- 중단 네비게이션 바: 메뉴 버튼 -->
-    <nav class="navbar navbar-expand bg-white border-bottom">
+    <!-- 상단 네비게이션 -->
+    <div class="menu-wrapper bg-light border-bottom">
         <div class="container">
-            <ul class="navbar-nav flex-row align-items-center main-menu">
-                <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary rounded-pill px-4 py-2 me-2" href="#">어촌귀어란?</a>
-                </li>
-                <li class="nav-item">
-                    <span class="divider mx-2">|</span>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary rounded-pill px-4 py-2 me-2" href="#">어업 관련 정보</a>
-                </li>
+            <div class="nav-item dropdown unified-dropdown w-100">
+                <!-- 상단 메뉴 버튼 -->
+                <div class="main-menu-buttons py-2">
+                    <a class="menu-btn" id="btn-1">어촌귀어란?</a>
+                    <a class="menu-btn" id="btn-2">어촌귀어의 혜택</a>
+                    <a class="menu-btn" id="btn-3">어업 안전</a>
+                    <a class="menu-btn" id="btn-4">스마트 양식 및 친환경 어업 기술</a>
+                    <a class="menu-btn" id="btn-5">어업 관련 정보</a>
+                </div>
+            
+                <!-- 드롭다운 메뉴 영역 -->
+                <div class="dropdown-container px-3 pb-4">
+                    {% set folder = 'base' %}
+                    {% include "partials/menu_data.html" %}
+                </div>
             </div>
         </div>
-    </nav>
+      </div>
 
+      
     <!-- flash 메시지 (항상 페이지 상단에 노출되도록) -->
      {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -85,18 +103,21 @@
       </script>
       {% endif %}
 
-    <!-- Content -->
-    <div class="container my-5">
-        {% block content %}{% endblock %}
-    </div>
+    <!-- Main Content -->
+    <main class="flex-fill">
+        <div class="container-fluid px-5 py-5">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
 
     <!-- Footer -->
-    <footer class="py-4 bg-dark text-white text-center">
+    <footer class="py-4 text-white text-center">
         <div class="container">
             <small>© 2025 어촌포털. All rights reserved.</small>
         </div>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

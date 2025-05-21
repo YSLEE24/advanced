@@ -1,3 +1,4 @@
+/* advanced/static/css/styles.css */
 /* ---------------- 공통 기본 설정 ---------------- */
 body {
     font-family: 'Segoe UI', 'Noto Sans KR', sans-serif;
@@ -8,100 +9,220 @@ body {
     background-position: center;
     margin: 0;
     padding: 0;
-}
-
-a {
+    min-height: 100vh;
+  }
+  
+  a {
     text-decoration: none;
-}
-
-/* ---------------- 상단 로그인 / 회원가입 ---------------- */
-.user-menu .nav-link {
+  }
+  
+  /* ---------------- 로그인 / 회원가입 메뉴 ---------------- */
+  .user-menu .nav-link {
     display: inline-block;
     white-space: nowrap;
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
     color: #666 !important;
-}
-.divider {
+  }
+  
+  .divider {
     color: #999;
     margin: 0 6px;
     font-size: 0.9rem;
-}
-
-/* ---------------- 중단 메뉴 (어촌귀어란? 등) ---------------- */
-.main-menu {
-    padding-left: 0;
-    margin-bottom: 0;
-}
-
-.main-menu .nav-link {
-    font-weight: 500;
+  }
+  
+  /* ---------------- 상단 중단 메뉴 ---------------- */
+  .main-menu-buttons {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .menu-btn {
+    width: 240px;
     padding: 0.5rem 0.75rem;
-}
-
-.main-menu .btn {
+    text-align: center;
+    white-space: nowrap;
+    background-color: white;
+    border: 1px solid #0077b6;
+    border-radius: 0;
+    margin-right: 12px;
     font-weight: 500;
-    border-radius: 20px;
-}
+    color: #000;
+  }
+  
+  .menu-btn:hover,
+  .menu-btn.active {
+    background-color: #0077b6;
+    color: white !important;
+  }
+  
+  /* 드롭다운 전체 컨테이너 */
+  .dropdown-container {
+    display: none; /* ✅ 기본 숨김 */
+    justify-content: flex-start;
+    background-color: white;
+    border-radius: 0 0 0.5rem 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 1000;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
 
-.main-menu .divider {
-    font-size: 1rem;
-    color: #ccc;
-    line-height: 1;
-    padding: 0 0.5rem;
-    display: inline-block;
-}
-
-/* ---------------- 버튼 스타일 (바다 느낌) ---------------- */
-.btn-primary {
+  /* 마우스를 올렸을 때 드롭다운 보이기 */
+  .unified-dropdown:hover .dropdown-container {
+    display: flex;
+  }
+  
+  /* 드롭다운 컬럼 스타일 */
+  .dropdown-col {
+    width: 240px;
+    padding: 0 1rem;
+    border-right: 1px solid #eee;
+    text-align: left;
+    flex-shrink: 0;
+    margin-right: 14px;
+  }
+  
+  .dropdown-col:last-child {
+    border-right: none;
+  }
+  
+  .dropdown-item {
+    padding: 0.25rem 0;
+    padding-left: 0.75rem;
+    color: #333;
+    font-size: 0.95rem;
+  }
+  
+  /* ---------------- 버튼 스타일 (바다 느낌) ---------------- */
+  .btn-primary {
     background-color: #0077b6;
     border: none;
     color: white;
-}
-
-.btn-primary:hover {
+  }
+  
+  .btn-primary:hover {
     background-color: #00b4d8;
     color: white;
-}
-
-/* ---------------- 카드 / 뉴스 영역 스타일 ---------------- */
-.card {
+  }
+  
+  /* ---------------- 카드 / 뉴스 영역 ---------------- */
+  .card {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 12px;
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     border: none;
-}
-
-.card-title {
+  }
+  
+  .card-title {
     color: #0077b6;
     font-weight: bold;
-}
-
-.card-header {
+  }
+  
+  .card-header {
     background-color: #caf0f8;
     font-weight: bold;
     color: #023e8a;
-}
-
-.card-body {
+  }
+  
+  .card-body {
     background-color: #ffffff;
-}
-
-/* ---------------- 푸터 ---------------- */
-footer {
+  }
+  
+  /* ---------------- 푸터 ---------------- */
+  footer {
     background-color: #0077b6;
     color: #ffffff;
     padding: 1rem 0;
     text-align: center;
-}
-
-/* ---------------- login.html ---------------- */
-.card {
-    border-radius: 12px;
-    background-color: #ffffff;
-}
-
-.card h3 {
+  }
+  
+  /* ---------------- 로그인 카드 전용 ---------------- */
+  .card h3 {
     color: #0077b6;
-}
+  }
+  
+  /* ---------------- 전체 높이 보장 ---------------- */
+  html, body {
+    height: 100%;
+  }
+
+  /* ---------------- contents base page ---------------- */
+/* 콘텐츠 전체 카드 스타일 */
+.row.g-0 {
+    background-color: rgba(255, 255, 255, 0.95);
+    margin: 2rem auto;
+    max-width: 1300px;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  /* 좌측 메뉴 스타일 */
+  .col-md-3 {
+    background: linear-gradient(to bottom right, #f0f8ff, #ffffff);
+    padding-left: 2rem;
+    padding-right: 1rem;
+  }
+  
+  .col-md-3 h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0077b6;
+    border-left: 4px solid #0077b6;
+    padding-left: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  
+  .col-md-3 ul li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #333;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    transition: background 0.2s ease, padding-left 0.2s ease;
+  }
+  
+  .col-md-3 ul li a:hover {
+    background-color: #e0f7ff;
+    color: #0077b6;
+    font-weight: 500;
+    padding-left: 1.25rem;
+  }
+  
+  .col-md-3 ul li a.active {
+    background-color: #0077b6;
+    color: white;
+    font-weight: 600;
+  }
+  
+  /* 우측 콘텐츠 영역 */
+  .col-md-9 {
+    background-color: #ffffff;
+    padding: 3rem;
+  }
+  
+  h3.fw-bold {
+    font-size: 1.75rem;
+    color: #0077b6;
+    margin-bottom: 1rem;
+  }
+  
+  hr {
+    width: 100%;
+    border-top: 2px solid #0077b6;
+    margin: 0.5rem 0 2rem;
+  }
+  
+  .content-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #222;
+  }
