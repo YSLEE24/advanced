@@ -16,8 +16,8 @@ def login():
             # DB 연결
             conn = mysql.connector.connect(
                 host="192.168.0.64",
-                user="root",
-                password="human",
+                user="advanced_db",
+                password="human_advanced",
                 database="advanced_project"
             )
             cursor = conn.cursor(dictionary=True)

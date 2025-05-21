@@ -2,6 +2,10 @@
 body {
     font-family: 'Segoe UI', 'Noto Sans KR', sans-serif;
     background-color: #f0f9ff;
+    background-image: url("/static/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     margin: 0;
     padding: 0;
 }
@@ -62,7 +66,9 @@ a {
 
 /* ---------------- 카드 / 뉴스 영역 스타일 ---------------- */
 .card {
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 12px;
+    padding: 1rem;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     border: none;
 }
