@@ -1,0 +1,42 @@
+<!-- advanced/templates/contents/contents_1/귀어귀촌준비절차.html-->
+{% extends "contents/contents_base.html" %}
+
+{% block content_title %}
+<h4 class="fw-bold text-primary mb-3">
+    귀어귀촌 준비절차 안내서
+</h4>
+<hr>
+{% endblock %}
+
+{% block content_body %}
+<style>
+  .step-text {
+    margin-bottom: 1em;
+    line-height: 1.8;
+  }
+  .step-text strong {
+    color: #1a73e8;
+    display: inline-block;
+    width: 7em;
+  }
+</style>
+
+<div class="section-preparing-process">
+    <p class="step-text"><strong>STEP 01.</strong>수산 관련기관 홈페이지에서 정보를 모으고, 전문가 상담으로 기초지식 쌓기</p>
+    <p class="step-text"><strong>STEP 02.</strong>교육기관의 이론·기술 교육 및 어업(양식업) 현장체험</p>
+    <p class="step-text"><strong>STEP 03.</strong>적성, 기술수준, 자본 등을 고려한 업종 선택</p>
+    <p class="step-text"><strong>STEP 04.</strong>어업 또는 양식업 참여를 통해 기술 습득</p>
+    <p class="step-text"><strong>STEP 05.</strong>생활여건 및 업종에 맞는 지역 선정</p>
+    <p class="step-text"><strong>STEP 06.</strong>현실적인 창업계획 수립 (지자체·선도어가 조언 활용)</p>
+    <p class="step-text"><strong>STEP 07.</strong>창업 및 생활자금 확보 (국가지원 포함)</p>
+    <p class="step-text"><strong>STEP 08.</strong>어선, 양식장, 주택 등의 기반 마련</p>
+    <p class="step-text"><strong>STEP 09.</strong>행정절차 완료 후 사업 본격 추진</p>
+    <p class="step-text"><strong>STEP 10.</strong>마을 행사 및 회의에 참여하며 지역주민과 융화</p>
+
+    <p style="text-align: right; font-size: 0.8em; color: #666;">
+    출처: 
+    <a href="https://sealife.go.kr/about/aboutStep.do" target="_blank" rel="noopener noreferrer">귀어귀촌종합센터</a>
+    </p>
+      
+    {% endblock %}
+</div>
