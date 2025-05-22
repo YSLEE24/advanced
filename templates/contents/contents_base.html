@@ -1,4 +1,5 @@
-<!-- advanced/templates/contents/contents_base.html-->
+<!-- 컨텐츠 페이지의 기본 화면 구성 -->
+<!-- advanced/templates/contents/contents_base.html -->
 {% extends "base.html" %}
 
 {% block title %}콘텐츠{% endblock %}
@@ -7,18 +8,19 @@
 <div class="row g-0" style="min-height: 600px;">
     <!-- 좌측 메뉴 -->
     <div class="col-md-3 border-end bg-white py-4 px-4">
-        <h5 class="fw-bold text-primary mb-3">{% block section_title %}{% endblock %}</h5>
         <ul class="list-unstyled">
-            {% set folder = folder or 'base' %}
-            {% include "partials/menu_data.html" %}
+            {% set folder = folder %}
+            {% include "partials/menu_data.html" with context %}
           </ul>
     </div>
 
     <!-- 우측 본문 -->
-    <div class="col-md-9 py-4 px-5 bg-light">
-        <h3 class="fw-bold text-primary mb-3">{% block content_title %}귀어귀촌 개념{% endblock %}</h3>
+    <div class="col-md-9 py-4 px-5 bg-light" name="content_title">
+        <h3 class="fw-bold text-primary mb-3">
+            {% block content_title %}본문 타이틀{% endblock %}
+        </h3>
         <hr>
-        <div class="content-body">
+        <div class="content-body" name="content_text">
             {% block content_body %}
             <p>내용 입력</p>
             {% endblock %}

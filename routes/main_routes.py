@@ -12,6 +12,6 @@ def index():
 def section(folder, page):
     template_path = f"contents/{folder}/{page}.html"
     if os.path.exists(f"templates/{template_path}"):
-        return render_template(template_path,folder=folder)
+        return render_template(template_path,folder=folder, page=page)
     else:
         return "페이지 없음", 404

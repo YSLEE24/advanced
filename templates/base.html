@@ -23,12 +23,12 @@
             {% if session.get('user_id') %}
                 <!-- 회원정보 표시 -->
                  <div class="d-flex align-items-center gap-2">
-                    <li class="nav-item">
+                    <div class="nav-item">
                         <a class="nav-link small text-secondary px-2" href="#">챗봇</a>
-                    </li>
-                    <li class="nav-item">
+                    </div>
+                    <div class="nav-item">
                         <span class="nav-link text-muted px-1">|</span>
-                    </li>
+                    </div>
                     <img src="{{ session.get('profile_image') or url_for('static', filename='images/default_profile.png') }}"
                         alt="프로필 이미지"
                         class="rounded-circle"
@@ -39,9 +39,9 @@
             {% else %}
                 <!-- 회원정보가 없어서 로그인/회원가입 버튼 등장-->
                 <ul class="navbar-nav flex-row align-items-center user-menu">
-                    <li class="nav-item">
+                    <div class="nav-item">
                         <a class="nav-link small text-secondary px-2" href="#">챗봇</a>
-                    </li>
+                    </div>
                     <li class="nav-item">
                         <span class="nav-link text-muted px-1">|</span>
                     </li>
@@ -74,8 +74,7 @@
             
                 <!-- 드롭다운 메뉴 영역 -->
                 <div class="dropdown-container px-3 pb-4">
-                    {% set folder = 'base' %}
-                    {% include "partials/menu_data.html" %}
+                    {% include "partials/top_menu_data.html" %}
                 </div>
             </div>
         </div>

@@ -1,0 +1,56 @@
+<!-- templates/partials/menu_data.html -->
+<div class="dropdown-col" id="col-1">
+    <h6 class="text-primary fw-bold">어촌귀어란?</h6>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_1', page='귀어귀촌개념') }}">- 귀어귀촌 개념</a>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_1', page='어업정의') }}">- 어업 정의</a>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_1', page='귀어귀촌준비절차') }}">- 귀어귀촌 준비절차</a>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_1', page='어업면허허가') }}">- 어업면허/허가</a>
+</div>
+
+<div class="dropdown-col" id="col-2">
+    <h6 class="text-primary fw-bold">어촌귀어의 혜택</h6>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_2', page='어촌이사혜택') }}">- 어촌 이사 혜택</a>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_2', page='귀어정책지원교육') }}">- 귀어정책지원&교육</a>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_2', page='청년어촌정착지원금') }}">- 청년어촌 정착지원금</a>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_2', page='양식장및어선임대사업') }}">- 양식장 및 어선 임대사업</a>
+</div>
+
+<div class="dropdown-col" id="col-3">
+    <h6 class="text-primary fw-bold">어업 안전</h6>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_3', page='이상생태사례') }}">- 이상 생태 사례</a>
+    <ul class="list-unstyled ms-3">
+        <li><a class="dropdown-item" href="{{ url_for('main.section', folder='contents_3', page='이상생태사례_산호초백화사례') }}">- 산호초 백화 사례</a></li>
+        <li><a class="dropdown-item" href="{{ url_for('main.section', folder='contents_3', page='이상생태사례_남해안굴폐사사례') }}">- 남해안 굴 폐사 사례</a></li>
+    </ul>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_3', page='유해해양생물') }}">- 유해 해양생물</a>
+    <ul class="list-unstyled ms-3">
+        <li><a class="dropdown-item" href="{{ url_for('main.section', folder='contents_3', page='유해해양생물_종류') }}">- 종류</a></li>
+        <li><a class="dropdown-item" href="{{ url_for('main.section', folder='contents_3', page='유해해양생물_특징') }}">- 특징</a></li>
+        <li><a class="dropdown-item" href="{{ url_for('main.section', folder='contents_3', page='유해해양생물_대응법') }}">- 대응법</a></li>
+    </ul>
+</div>
+
+<div class="dropdown-col" id="col-4">
+    <h6 class="text-primary fw-bold">스마트 양식 및 친환경 어업 기술</h6>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_4', page='IoTAI활용스마트양식기술소개') }}">- IoT·AI 활용 스마트 양식 기술 소개</a>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_4', page='친환경지속가능어업사례및기술') }}">- 친환경·지속가능 어업 사례 및 기술</a>
+</div>
+
+<div class="dropdown-col" id="col-5">
+    <h6 class="text-primary fw-bold">어업 관련 정보</h6>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_5', page='어업종류') }}">- 어업 종류</a>
+    <ul class="list-unstyled ms-3">
+        <li><a class="dropdown-item" href="{{ url_for('main.section', folder='contents_5', page='어업종류_양식어업') }}">- 양식어업</a></li>
+        <li><a class="dropdown-item" href="{{ url_for('main.section', folder='contents_5', page='어업종류_어선어업') }}">- 어선어업</a></li>
+        <li><a class="dropdown-item" href="{{ url_for('main.section', folder='contents_5', page='어업종류_나잠어업') }}">- 나잠어업</a></li>
+        <li><a class="dropdown-item" href="{{ url_for('main.section', folder='contents_5', page='어업종류_정착어업') }}">- 나잠어업</a></li>
+        <li><a class="dropdown-item" href="{{ url_for('main.section', folder='contents_5', page='어업종류_etc') }}">- 나잠어업</a></li>
+    </ul>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_5', page='지역별주력어종') }}">- 지역별 주력 어종</a>
+    <a class="dropdown-item" href="{{ url_for('main.section', folder='contents_5', page='낚시및해루질') }}">- 낚시 및 해루질</a>
+    <ul class="list-unstyled ms-3">
+        <li><a class="dropdown-item" href="{{ url_for('main.section', folder='contents_5', page='낚시및해루질_양식어업') }}">- 양식어업</a></li>
+        <li><a class="dropdown-item" href="{{ url_for('main.section', folder='contents_5', page='낚시및해루질_어선어업') }}">- 어선어업</a></li>
+        <li><a class="dropdown-item" href="{{ url_for('main.section', folder='contents_5', page='낚시및해루질_나잠어업') }}">- 나잠어업</a></li>
+    </ul>
+</div>
