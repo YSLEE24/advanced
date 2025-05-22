@@ -15,16 +15,10 @@
     </div>
 
     <!-- 우측 본문 -->
-    <div class="col-md-9 py-4 px-5 bg-light" name="content_title">
-        <h3 class="fw-bold text-primary mb-3">
-            {% block content_title %}본문 타이틀{% endblock %}
-        </h3>
-        <hr>
-        <div class="content-body" name="content_text">
-            {% block content_body %}
-            <p>내용 입력</p>
-            {% endblock %}
-        </div>
+    <div class="col-md-9 py-4 px-5 bg-light">
+        {% block content_title %}{% endblock %}
+
+        {% block content_body %}{% endblock %}
     </div>
 </div>
 {% endblock %}
