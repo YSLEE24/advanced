@@ -1,0 +1,49 @@
+<!-- 컨텐츠 페이지의 기본 화면 구성 -->
+<!-- advanced/templates/contents/contents_base_tap.html -->
+{% extends "base.html" %}
+
+{% block title %}탭 콘텐츠{% endblock %}
+
+{% block content %}
+<div class="row g-0" style="min-height: 600px;">
+    <!-- 좌측 메뉴 -->
+    <div class="col-md-3 border-end bg-white py-4 px-4">
+        <ul class="list-unstyled">
+            {% include "partials/top_menu_data.html"%}
+          </ul>
+    </div>
+
+  <!-- 우측 본문 -->
+  <div class="col-md-9 py-4 px-5 bg-light">
+    <!-- 탭 메뉴 -->
+    <div class="nav tab-grid row row-cols-2 row-cols-sm-3 row-cols-md-4 g-1 mb-3" role="tablist">
+      {% for id, label, _ in tabs %}
+      <div class="col">
+        <button class="tab-btn w-100 {% if loop.first %}active{% endif %}"
+                id="tab-{{ id }}-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#tab-{{ id }}"
+                type="button"
+                role="tab"
+                aria-controls="tab-{{ id }}"
+                aria-selected="{{ 'true' if loop.first else 'false' }}">
+          {{ label }}
+        </button>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- 탭 콘텐츠 -->
+    <div class="tab-content">
+      {% for id, _, content in tabs %}
+      <div class="tab-pane fade {% if loop.first %}show active{% endif %}"
+          id="tab-{{ id }}"
+          role="tabpanel"
+          aria-labelledby="tab-{{ id }}-tab">
+        {{ content | safe }}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

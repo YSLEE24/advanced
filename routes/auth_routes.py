@@ -3,7 +3,11 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash,
 import mysql.connector
 import bcrypt
 
-auth_bp = Blueprint('auth', __name__, url_prefix="/auth")
+auth_bp = Blueprint('auth',
+                    __name__,
+                    url_prefix="/auth",
+                    template_folder="/templates",
+                    static_folder="/static")
 
 @auth_bp.route('/login', methods=["GET", "POST"])
 def login():
@@ -31,7 +35,7 @@ def login():
                 # 로그인 성공 - 세션에 정보 저장
                 session['user_id'] = user['id']
                 session['nickname'] = user.get('nickname') or username['username'] # 닉네임 없으면 username 사용
-                session['profile_image'] = user.get('profile_image') or url_for('static', filename="images/default_profile.png")
+                session['profile_image'] = user.get('profile_image') or "images/default_profile.png"
                 print(user.get('profile_image'))
 
                 return redirect(url_for("main.index"))
