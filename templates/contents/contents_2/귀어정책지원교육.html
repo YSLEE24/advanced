@@ -1,21 +1,36 @@
 <!-- advanced/templates/contents/contents_1/귀어정책지원교육.html-->
 {% extends "contents/contents_base.html" %}
 
-{% block title %}귀어정책지원교육{% endblock %}
+{% block title %}
+귀어정책지원교육
+{% endblock %}
+  
 
 <div name="section">
-{% block content_title %}
-    <h3 class="fw-bold text-primary mb-3" name="content_title">
-        귀어정책지원&교육
-    </h3>
+    {% block content_title %}
+    <h4 class="fw-bold text-primary mb-3">
+    귀어 정책 지원 및 교육 안내
+    </h4>
     <hr>
     {% endblock %}
 
-    <!-- 여기에 입력한 내용은 등장하지 않습니다. -->
-
     {% block content_body %}
-    <div class="content-body" name="content_text">
-        <p>샤샤샤아 샤샤샤아 by 건담 </p>
-    </div>
+    <p name="content_text">
+    귀어 정책은 도시 거주자가 어촌으로 이주하여 어업에 종사할 수 있도록 돕는 정부 지원 제도입니다. 창업 자금, 주택 자금, 정착 지원금 등 다양한 재정적 지원을 받을 수 있으며, 신청 자격과 조건은 지역별 담당 기관을 통해 확인할 수 있습니다.
+    </p>
+    <p name="content_text">
+    귀어 희망자는 '귀어학교'에서 4~6주간 이론과 실습 중심의 교육을 받으며 어촌 생활을 체험할 수 있습니다. 이 교육은 전국 6개 지역에서 무료로 운영되며, 어업 경험이 없는 초보자도 수강할 수 있습니다.
+    </p>
+    <p name="content_text">
+    창업을 준비하는 경우 최대 3억 원의 창업 자금을 연 2%의 금리로 지원받을 수 있고, 주택을 구입하는 경우에는 최대 7,500만 원까지 지원받을 수 있습니다. 만 40세 미만의 청년 귀어인은 최대 3년간 매달 100만 원에서 80만 원까지의 정착 지원금을 받을 수 있습니다.
+    </p>
+    <p name="content_text">
+    이 외에도 만 49세 이하 어선 면허 보유 청년에게는 어선을 임대해주는 사업도 운영되고 있으며, 귀어인의 집을 통해 최대 2년간 어촌 생활을 미리 체험할 수 있는 임대주택도 제공됩니다. 모든 제도는 귀어인의 안정적 정착을 위한 것으로, 신청은 거주지 관할 시·군·구 또는 귀어귀촌 종합센터를 통해 진행할 수 있습니다.
+    </p>
+    <p style="text-align: right; font-size: 0.8em; color: #666;">
+    출처: 
+    <a href="https://www.sealife.go.kr/about/aboutSealife.do" target="_blank" rel="noopener noreferrer">귀어귀촌 종합센터</a>
+    </p>
     {% endblock %}
+
 </div>
