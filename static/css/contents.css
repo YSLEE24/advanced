@@ -1,0 +1,27 @@
+/* advanced/static/css/contents.css */
+/* advanced/templates/contents/contents_base.html 을 관리하는 css */
+
+.tab-btn {
+    padding: 6px 8px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    transition: background-color 0.2s, border-color 0.2s;
+    height: 40px;
+    font-size: 0.9rem; /* 텍스트 크기도 조정 */
+    white-space: normal; /* 줄바꿈 허용 */
+    word-break: break-word; /* 단어가 길면 강제 줄바꿈 */
+  }
+  
+  .tab-btn:hover {
+    background-color: #f5faff;
+    border-color: #0044cc;
+  }
+  
+  .tab-btn.active {
+    background-color: #0044cc;
+    color: white;
+    border-color: #0044cc;
+  }

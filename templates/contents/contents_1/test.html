@@ -1,0 +1,31 @@
+<!--advanced/templates/contents/contents_1/test.html-->
+{% extends "contents/contents_base_tap.html" %}
+{% set folder = 'contents_1' %}
+
+<!-- 페이지 이름 꼭 수정 필요 -->
+{% block title %}
+  귀어귀촌 개념
+{% endblock %}
+
+<!--'id: 마음대로 입력 가능 (고유값)',
+    '탭 이름',
+    '탭 내용'
+-->
+
+{% set tabs = [
+  ('id_1', '맨손어업','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+      테스트
+    </h4>
+    <hr>
+    <p name="content_text">맨손어업은 물속 생물을 직접 잡는 방식입니다.</p>
+  </div>
+  '),
+  ('id_2', '트랄랄렐로 트랄라라','
+  <p>걸어댕기는 상어.</p>
+  '),
+  ('temp_id', '봄바르디로 크로코딜로','
+  <p>날아다니는 악어.</p>
+  ')
+] %} 
