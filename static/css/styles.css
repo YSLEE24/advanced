@@ -2,14 +2,27 @@
 /* ---------------- 공통 기본 설정 ---------------- */
 body {
     font-family: 'Segoe UI', 'Noto Sans KR', sans-serif;
-    background-color: #f0f9ff;
+    background-color: #e3f2fd;
     background-image: url("/static/images/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
     min-height: 100vh;
+  }
+/* ---------------- 마스크 효과 ---------------- */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);  /* 어두운 반투명 마스크 */
+    z-index: -1;
+    pointer-events: none;
   }
   
   a {
@@ -83,7 +96,7 @@ body {
   
   /* 드롭다운 컬럼 스타일 */
   .dropdown-col {
-    width: 1 1 200px;
+    flex: 1 1 200px;
     min-width: 200px;
     padding: 0 0.5rem;
     border-right: 1px solid #eee;
@@ -150,9 +163,9 @@ body {
   
   /* ---------------- 푸터 ---------------- */
   footer {
-    background-color: #0077b6;
+    background-color: #024569;
     color: #ffffff;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     text-align: center;
   }
   

@@ -13,9 +13,13 @@
 
 <body class="d-flex flex-column min-vh-100">
     <!-- logo -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1">
         <div class="container">
-            <a class="navbar-brand" href="{{ url_for('main.index') }}">어부바</a>
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">
+                <img src="{{ url_for('static', filename='images/logo.png') }}"
+                alt="어부바 로고"
+                height="28">
+            </a>
         </div>
     </nav>
     
@@ -100,16 +104,25 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-4 text-white text-center">
+    <footer class="py-1 text-white text-center">
         <div class="container">
             <small>© 2025 어촌포털. All rights reserved.</small>
         </div>
     </footer>
 
-    <!-- 챗봇 아이콘 추가 -->
-    <a class="chatbot-fab" id="chatbotToggleBtn">
-        <img src="{{ url_for('static', filename='images/chatbot_icon.png') }}" alt="챗봇" class="chatbot-icon">
-    </a>
+    <!-- 챗봇 아이콘 + 말풍선 -->
+    <div class="chatbot-fab-wrapper">
+        <!-- 말풍선 -->
+        <div class="chatbot-tooltip">
+            <strong>"궁금한 점이 있으신가요?"<br>
+            - 어부봇&nbsp;&nbsp;</strong>
+        </div>
+
+        <!-- 챗봇 아이콘 추가 -->
+        <a class="chatbot-fab" id="chatbotToggleBtn">
+            <img src="{{ url_for('static', filename='images/chatbot_icon.png') }}" alt="챗봇" class="chatbot-icon">
+        </a>
+    </div>
 
     <!-- 챗봇 채팅창 -->
     <div class="chatbot-window" id="chatbotWindow">

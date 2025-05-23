@@ -2,17 +2,23 @@
 /* advanced/templates/contents/contents_base.html 을 관리하는 css */
 
 .tab-btn {
-    padding: 6px 8px;
+    flex: 1;
+    padding: 8px 10px;
     font-weight: bold;
     text-align: center;
     border: 2px solid #ddd;
     border-radius: 8px;
     background-color: white;
     transition: background-color 0.2s, border-color 0.2s;
-    height: 40px;
+    height: auto;
+    min-height: 40px;
     font-size: 0.9rem; /* 텍스트 크기도 조정 */
     white-space: normal; /* 줄바꿈 허용 */
-    word-break: break-word; /* 단어가 길면 강제 줄바꿈 */
+    word-break: keep-all; /* 단어가 길면 강제 줄바꿈 */
+    overflow-wrap: break-word; /* 전체 줄바꿈 자연스러움 */
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
   }
   
   .tab-btn:hover {
@@ -24,4 +30,14 @@
     background-color: #0044cc;
     color: white;
     border-color: #0044cc;
+  }
+
+  .tab-grid .col {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .tab-grid .tab-btn {
+    flex: 1;
   }
