@@ -8,9 +8,9 @@
 <div class="row g-0" style="min-height: 600px;">
     <!-- 좌측 메뉴 -->
     <div class="col-md-3 border-end bg-white py-4 px-4">
-        <ul class="list-unstyled">
-            {% include "partials/top_menu_data.html"%}
-          </ul>
+      <ul class="list-unstyled">
+          {% include "partials/menu_data.html"%} 
+      </ul>
     </div>
 
   <!-- 우측 본문 -->
@@ -31,6 +31,7 @@
         </button>
       </div>
       {% endfor %}
+      
     </div>
 
     <!-- 탭 콘텐츠 -->
@@ -44,6 +45,7 @@
       </div>
       {% endfor %}
     </div>
+    {% block source %}{% endblock %}
   </div>
 </div>
 {% endblock %}
