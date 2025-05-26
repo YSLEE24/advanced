@@ -1,0 +1,126 @@
+<!--advanced/templates/contents/contents_1/test.html-->
+{% extends "contents/contents_base_tap.html" %}
+{% set folder = 'contents_1' %}
+
+<!-- 페이지 이름 꼭 수정 필요 -->
+{% block title %}
+  유해 해양생물 대응법
+{% endblock %}
+
+<!--'id: 마음대로 입력 가능 (고유값)',
+    '탭 이름',
+    '탭 내용'
+-->
+
+{% set tabs = [
+  ('id_18', '괭생이모자반','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+      괭생이모자반
+    </h4>
+    <hr>
+    <div name="content_text">
+        <p>
+            <strong>예방적 감시</strong> : 위성영상 및 해양 드리프터 이용한 유입 경로 예측
+        </p>
+        <p>
+            <strong>물리적 제거</strong> : 해안에 도달하기 전에 바다 위에서 수거선으로 조기 수거
+        <p>
+            <strong>활용 방안 모색</strong> : 비료, 사료, 바이오 연료 등 자원화
+        </p>
+    </div>
+   
+  </div>
+  '),
+
+  ('id_19', '갯줄풀','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+      갯줄풀
+    </h4>
+    <hr>
+    <div name="content_text">
+        <p>
+            <strong>기계적 제거</strong> : 낫, 제초기 등을 이용해 반복 제거 
+        </p>
+        <p>
+            <strong>화학적 제거</strong> : 제초제 사용 (단, 갯벌 생태계 위해성 주의 필요)
+        <p>
+            <strong>생물학적 제거</strong> : 갯줄풀을 먹는 곤충 등 활용 시도
+        </p>
+        <p>
+            <strong>지속적 감시</strong> : 및 유전자 분석: 잡종 발생 여부 등 생태 교란 추적
+        </p>
+    </div>
+   
+  </div>
+  '),
+
+  ('id_20', '이끼벌레류','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+      이끼벌레류
+    </h4>
+    <hr>
+    <div name="content_text">
+        <p>
+            <strong>물리적 세척</strong> : 부착된 어망, 부표, 양식기자재 등을 정기적으로 세척
+        </p>
+        <p>
+            <strong>항부착 코팅제 사용</strong> : 양식장 기자재에 이끼벌레 부착 방지 
+        <p>
+            <strong>조기 모니터링</strong> : 정착 초기단계 탐지 후 즉시 제거 
+        </p>
+    </div>
+   
+  </div>
+  '),
+
+  ('id_21', '아무르불가사리','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+      아무르불가사리
+    </h4>
+    <hr>
+    <div name="content_text">
+        <p>
+            <strong>수거</strong> : 다이버 및 트롤망 등을 통한 물리적 수거
+        </p>
+        <p>
+            <strong>유인장치	</strong> : 먹이 유인을 통해 수거 효율 증가
+        <p>
+            <strong>자원화 시도</strong> : 사료, 의료용 연구소재 등으로 활용 방안 모색
+        </p>
+    </div>
+   
+  </div>
+  '),
+
+  ('id_22', '해파리류','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+      해파리류
+    </h4>
+    <hr>
+    <div name="content_text">
+        <p>
+            <strong>모니터링 및 조기경보 시스템</strong> : 드론, 해양관측망, 어업인 제보 활용
+        </p>
+        <p>
+            <strong>해파리 차단망 설치</strong> :  양식장 및 해수욕장 주변
+        <p>
+            <strong>물리적 제거</strong> : 노무라입깃해파리 등은 바다 위에서 어선 수거
+        </p>
+        <p>
+            <strong>민간 참여	</strong> : 해파리 수거량에 따른 보상제 운영
+        </p>
+        <p>
+            <strong>국제 협력	</strong> : 중국·일본 등과 공동 모니터링 
+        </p>
+    </div>
+   
+  </div>
+  '),
+
+  
+] %} 
