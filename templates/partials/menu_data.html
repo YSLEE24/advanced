@@ -37,21 +37,21 @@
 {% elif folder is defined and folder == 'contents_4' %}
 <div class="dropdown-col" id="col-4">
     <h6 class="text-primary fw-bold">스마트 양식 및 친환경 어업 기술</h6>
-    <a class="dropdown-item {{ 'active fw-bold text-primary' if page == 'IoTAI활용스마트양식기술소개' }}" href="{{ url_for('main.section', folder='contents_4', page='IoTAI활용스마트양식기술소개') }}">- IoT·AI 활용 스마트 양식 기술 소개</a>
-    <a class="dropdown-item {{ 'active fw-bold text-primary' if page == '친환경지속가능어업사례및기술' }}" href="{{ url_for('main.section', folder='contents_4', page='친환경지속가능어업사례및기술') }}">- 친환경·지속가능 어업 사례 및 기술</a>
+    <a class="dropdown-item {{ 'active fw-bold text-primary' if page == 'IoTAI활용스마트양식' }}" href="{{ url_for('main.section', folder='contents_4', page='IoTAI활용스마트양식') }}">- IoT·AI 활용 스마트 양식</a>
+    <a class="dropdown-item {{ 'active fw-bold text-primary' if page == '친환경지속가능어업' }}" href="{{ url_for('main.section', folder='contents_4', page='친환경지속가능어업') }}">- 친환경·지속가능 어업</a>
 </div>
 
 {% elif folder is defined and folder == 'contents_5' %}
 <div class="dropdown-col" id="col-5">
     <h6 class="text-primary fw-bold">어업 관련 정보</h6>
     <a class="dropdown-item" href="#">- 어업 종류</a>
-    <ul class="list-unstyled ms-3">
+    <!-- <ul class="list-unstyled ms-3">
         <li><a class="dropdown-item {{ 'active fw-bold text-primary' if page == '어업종류_양식어업' }}" href="{{ url_for('main.section', folder='contents_5', page='어업종류_양식어업') }}">- 양식어업</a></li>
         <li><a class="dropdown-item {{ 'active fw-bold text-primary' if page == '어업종류_어선어업' }}" href="{{ url_for('main.section', folder='contents_5', page='어업종류_어선어업') }}">- 어선어업</a></li>
         <li><a class="dropdown-item {{ 'active fw-bold text-primary' if page == '어업종류_나잠어업' }}" href="{{ url_for('main.section', folder='contents_5', page='어업종류_나잠어업') }}">- 나잠어업</a></li>
         <li><a class="dropdown-item {{ 'active fw-bold text-primary' if page == '어업종류_정착어업' }}" href="{{ url_for('main.section', folder='contents_5', page='어업종류_정착어업') }}">- 정착어업</a></li>
         <li><a class="dropdown-item {{ 'active fw-bold text-primary' if page == '어업종류_etc' }}" href="{{ url_for('main.section', folder='contents_5', page='어업종류_etc') }}">- 기타</a></li>
-    </ul>
+    </ul> -->
     <a class="dropdown-item {{ 'active fw-bold text-primary' if page == '지역별주력어종' }}" href="{{ url_for('main.section', folder='contents_5', page='지역별주력어종') }}">- 지역별 주력 어종</a>
     <a class="dropdown-item" href="#">- 낚시 및 해루질</a>
     <ul class="list-unstyled ms-3">

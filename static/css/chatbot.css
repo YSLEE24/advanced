@@ -29,18 +29,18 @@
 }
   
   .chatbot-window {
+    display: none; /* 기본은 숨김 */
     position: fixed;
-    bottom: 90px;
-    right: 24px;
-    width: 320px;
-    height: 400px;
-    background-color: white;
-    border: 1px solid #000000;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    display: none;  /* ✅ 기본 숨김 */
+    bottom: 80px;
+    right: 30px;
+    width: 300px;
+    max-height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    overflow: hidden;
     flex-direction: column;
-    z-index: 1051;
   }
   
   .chatbot-window.open {
