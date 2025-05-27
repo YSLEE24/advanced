@@ -1,11 +1,15 @@
 from langchain_community.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
 
-def load_faiss_index(index_dir="chatbot/vector_store/contents"):
-    embedding_model = HuggingFaceEmbeddings(model_name="jhgan/ko-sroberta-multitask")
+def load_faiss_index(index_dir="vector_store/contents"):
+    try:
+        embedding_model = HuggingFaceEmbeddings(model_name="jhgan/ko-sroberta-multitask")
+        db = FAISS.load_local(index_dir, embeddings=embedding_model)
+        return db
+    except Exception as e:
+        print("예외발생: ", e)
+
     
-    db = FAISS.load_local(index_dir, embeddings=embedding_model)
-    return db
 
 # 사용 예시
 if __name__ == "__main__":

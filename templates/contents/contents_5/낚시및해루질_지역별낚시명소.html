@@ -1,116 +1,316 @@
-{% extends "contents/contents_base.html" %}
+<!--advanced/templates/contents/contents_1/test.html-->
+{% extends "contents/contents_base_tap.html" %}
 
-{% block title %}지역별 낚시 명소{% endblock %}
-<div name="section">
-
-    {% block content_title %}
-    <h3 class="fw-bold text-primary mb-3" name="content_title">
-        지역별 낚시 명소
-        </h3>
-        <hr>
-        
-    {% endblock %}
+<!-- 페이지 이름 꼭 수정 필요 -->
+{% block title %}
+ 지역별 낚시 명소
+{% endblock %}
 
 
-        {% block content_body %}
-        
-            <p name="content_text">
+{% set tabs = [
+  ('id_1', '지역별 낚시 명소','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+    지역별 낚시 명소
+    </h4>
+    <hr>
+        <div name="content_text">
+            <p> 
                 지역별로 낚시하기 좋은 장소들이 있습니다.<br>
                 이곳에 몇몇 낚시명소들에 대한 정보를 제공하겠습니다.<br>
                 이곳에 언급된 낚시명소들 외에도 전국에는 여러 낚시명소들이 있습니다.
             </p>
-       
-            <h5 name="content_title">1. 인천·경기도-서해안</h5>
-            <p name="content_text">
-                1. 시화방조제 (경기 시흥)<br>
+            <h4 class="fw-bold text-primary mb-3">
+            </h4>
+            <hr>           
+        </div>
+  </div>
+  '),
+
+  ('id_2', '인천·경기도-서해안','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+      지역별 낚시 명소
+    </h4>
+     <hr>
+        <div name="content_text">
+            <p> 
+                지역별로 낚시하기 좋은 장소들이 있습니다.<br>
+                이곳에 몇몇 낚시명소들에 대한 정보를 제공하겠습니다.<br>
+                이곳에 언급된 낚시명소들 외에도 전국에는 여러 낚시명소들이 있습니다.
+            </p><br>
+            <h4 class="fw-bold text-primary mb-3">
+            </h4>
+            <h4 class="fw-bold text-primary mb-3" name="content_title">
+                인천·경기도-서해안
+            </h4>
+            <hr>
+            <strong name="content_title">
+                1. 시화방조제 (경기 시흥)
+            </strong>
+            <p> 
                 초보자에게 적합한 방파제 낚시터<br>                
-                망둥어, 우럭, 놀래미 낚시 가능<br>             
-                2. 영종도 남항 방파제 (인천 중구)<br>
+                망둥어, 우럭, 놀래미 낚시 가능<br>
+            </p>
+            <strong name="content_title">
+                2. 영종도 남항 방파제 (인천 중구)
+            </strong>
+            <p> 
                 주차·접근성 우수, 가족 낚시 인기<br>               
-                전어, 광어, 삼치 등 계절별 어종 다양<br>                
-                3. 무의도 하나개해수욕장 주변<br>
+                전어, 광어, 삼치 등 계절별 어종 다양<br>
+            </p>
+            <strong name="content_title">
+                3. 무의도 하나개해수욕장 주변
+            </strong>
+            <p> 
                 갯바위 낚시와 해루질 병행 가능<br>              
                 갑오징어, 쥐치, 우럭 등 출몰<br>
             </p>
-            <br>
-            
-            <h5 name="content_title">2. 강원도-동해안</h5>
-            <p name="content_text">
-                1. 속초항 / 대포항<br>
+        </div>
+  </div>
+  '),
+
+  ('id_3', '강원도-동해안','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+      지역별 낚시 명소
+    </h4>
+     <hr>
+        <div name="content_text">
+            <p> 
+                지역별로 낚시하기 좋은 장소들이 있습니다.<br>
+                이곳에 몇몇 낚시명소들에 대한 정보를 제공하겠습니다.<br>
+                이곳에 언급된 낚시명소들 외에도 전국에는 여러 낚시명소들이 있습니다.
+            </p><br>
+            <h4 class="fw-bold text-primary mb-3">
+            </h4>
+            <h4 class="fw-bold text-primary mb-3" name="content_title">
+                강원도-동해안
+            </h4>
+            <hr>
+            <strong name="content_title">
+                1. 속초항 / 대포항
+            </strong>
+            <p> 
                 바다루어·방파제 낚시 가능.   <br>             
-                가자미, 고등어, 전갱이 낚시 활발.  <br>              
-                2. 삼척 새천년해안도로 인근<br>
+                가자미, 고등어, 전갱이 낚시 활발.  <br> 
+            </p>
+            <strong name="content_title">
+                2. 삼척 새천년해안도로 인근
+            </strong>
+            <p> 
                 갯바위낚시 포인트 많음.     <br>           
-                돌돔, 감성돔, 장대 등 출현.  <br>              
-                3. 동해 묵호항<br>
+                돌돔, 감성돔, 장대 등 출현.  <br>
+            </p>
+            <strong name="content_title">
+                3. 동해 묵호항
+            </strong>
+            <p> 
                 선상낚시 출항지로 인기. <br>               
                 갈치, 전갱이, 청어, 참돔 대상.  <br>
-            <br>
-            
-            <h5 name="content_title">3. 충청도-서해안</h5>
-            <p name="content_text">
-                1. 태안 안면도 방포항 / 백사장항<br>
+            </p>
+        </div>
+  </div>
+  '),
+
+  ('id_4', ' 충청도-서해안','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+      지역별 낚시 명소
+    </h4>
+     <hr>
+        <div name="content_text">
+            <p> 
+                지역별로 낚시하기 좋은 장소들이 있습니다.<br>
+                이곳에 몇몇 낚시명소들에 대한 정보를 제공하겠습니다.<br>
+                이곳에 언급된 낚시명소들 외에도 전국에는 여러 낚시명소들이 있습니다.
+            </p><br>
+            <h4 class="fw-bold text-primary mb-3">
+            </h4>
+            <h4 class="fw-bold text-primary mb-3" name="content_title">
+                충청도-서해안
+            </h4>
+            <hr>
+            <strong name="content_title">
+                1. 태안 안면도 방포항 / 백사장항
+            </strong>
+            <p> 
                 서해권 대표 낚시 포인트.       <br>         
-                우럭, 광어, 감성돔, 주꾸미 가능.  <br>              
-                2. 무창포항 (보령)<br>
+                우럭, 광어, 감성돔, 주꾸미 가능. 
+            </p>
+            <strong name="content_title">
+                2. 무창포항 (보령)
+            </strong>
+            <p> 
                 해루질 명소로 낮에는 낚시, 밤에는 해산물 채취 가능. <br>               
-                광어, 전어, 망둥어 등.   <br>             
-                3. 서산 삼길포항<br>
+                광어, 전어, 망둥어 등. 
+            </p>
+            <strong name="content_title">
+                3. 서산 삼길포항
+            </strong>
+            <p> 
                 드넓은 방파제에서 캠핑낚시 가능.  <br>              
-                우럭, 놀래미, 장어 낚시 활발. <br>               
-                 
+                우럭, 놀래미, 장어 낚시 활발.<br>
             </p>
-            <br>
-            
-            <h5 name="content_title">4. 전라도-남해·서남해</h5>
-            <p name="content_text">
-                1. 여수 돌산도 / 오동도<br>
+        </div>
+  </div>
+  '),
+
+  ('id_5', '전라도-남해·서남해','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+      지역별 낚시 명소
+    </h4>
+     <hr>
+        <div name="content_text">
+            <p> 
+                지역별로 낚시하기 좋은 장소들이 있습니다.<br>
+                이곳에 몇몇 낚시명소들에 대한 정보를 제공하겠습니다.<br>
+                이곳에 언급된 낚시명소들 외에도 전국에는 여러 낚시명소들이 있습니다.
+            </p><br>
+            <h4 class="fw-bold text-primary mb-3">
+            </h4>
+            <h4 class="fw-bold text-primary mb-3" name="content_title">
+                전라도-남해·서남해
+            </h4>
+            <hr>
+            <strong name="content_title">
+                1. 여수 돌산도 / 오동도
+            </strong>
+            <p> 
                 갯바위낚시, 선상낚시 명소. <br>               
-                광어, 감성돔, 농어, 쥐치 대상. <br>               
-                2. 군산 비응항 / 야미도<br>
+                광어, 감성돔, 농어, 쥐치 대상. 
+            </p>
+            <strong name="content_title">
+                2. 군산 비응항 / 야미도
+            </strong>
+            <p> 
                 선상낚시 출항지로 유명.     <br>           
-                주꾸미, 갑오징어, 광어 낚시 활발. <br>               
-                3. 목포 외달도<br>
+                주꾸미, 갑오징어, 광어 낚시 활발.
+            </p>
+            <strong name="content_title">
+                3. 목포 외달도
+            </strong>
+            <p> 
                 낚시터와 숙소가 함께 있는 섬.  <br>              
-                벵에돔, 도다리, 쏨뱅이 대상. <br>               
-                4. 신안 압해도<br>
+                벵에돔, 도다리, 쏨뱅이 대상.<br>
+            </p>
+            <strong name="content_title">
+                4. 신안 압해도
+            </strong>
+            <p> 
                 해루질과 방파제낚시를 함께 즐길 수 있음. <br>               
-                낙지, 고동, 우럭 잡이 가능. <br>         
-            <br>
-            
-            <h5 name="content_title">5. 경상도·부산</h5>
-            <p name="content_text">
-                1. 통영 욕지도 / 매물도<br>
+                낙지, 고동, 우럭 잡이 가능.<br>
+            </p>
+        </div>
+  </div>
+  '),
+
+  ('id_6', '경상도·부산','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+      지역별 낚시 명소
+    </h4>
+     <hr>
+        <div name="content_text">
+            <p> 
+                지역별로 낚시하기 좋은 장소들이 있습니다.<br>
+                이곳에 몇몇 낚시명소들에 대한 정보를 제공하겠습니다.<br>
+                이곳에 언급된 낚시명소들 외에도 전국에는 여러 낚시명소들이 있습니다.
+            </p><br>
+            <h4 class="fw-bold text-primary mb-3">
+            </h4>
+            <h4 class="fw-bold text-primary mb-3" name="content_title">
+                경상도·부산
+            </h4>
+            <hr>
+            <strong name="content_title">
+                1. 통영 욕지도 / 매물도
+            </strong>
+            <p> 
                 선상낚시 명소. 참돔, 부시리, 갈치 다양. <br>               
-                갯바위 포인트도 풍부. <br>               
-                2. 거제 구조라항 / 장승포항<br>
+                갯바위 포인트도 풍부.
+            </p>
+            <strong name="content_title">
+                2. 거제 구조라항 / 장승포항
+            </strong>
+            <p> 
                 가족 단위 낚시·관광지 병행 가능. <br>               
-                감성돔, 돌돔, 학공치 낚시 활발.<br>                
-                3. 남해 미조항 / 설리항<br>
+                감성돔, 돌돔, 학공치 낚시 활발.<br>
+            </p>
+            <strong name="content_title">
+                3. 남해 미조항 / 설리항
+            </strong>
+            <p> 
                 조류 빠르나 어종 풍부.   <br>             
-                벵에돔, 감성돔, 농어 출현. <br>               
-                4. 울산 진하해변 / 간절곶<br>
+                벵에돔, 감성돔, 농어 출현.
+            </p>
+            <strong name="content_title">
+                4. 울산 진하해변 / 간절곶
+            </strong>
+            <p> 
                 방파제 및 해안가 루어낚시 가능.<br>                
-                방어, 삼치, 농어 계절별 회유.<br>
-                5. 다대포항 / 몰운대<br>
+                방어, 삼치, 농어 계절별 회유.
+            </p>
+            <strong name="content_title">
+                5. 다대포항 / 몰운대
+            </strong>
+            <p> 
                 도시 근교 방파제 낚시 명소.<br>
-                우럭, 놀래미, 학꽁치 대상.<br>
-                6. 기장 대변항 / 일광해변<br>
+                우럭, 놀래미, 학꽁치 대상.
+            </p>
+            <strong name="content_title">
+                6. 기장 대변항 / 일광해변
+            </strong>
+            <p> 
                 가을철 갈치, 봄철 전갱이 낚시 성지.<br>
-                선상낚시도 활발함.  <br>              
+                선상낚시도 활발함.
             </p>
-            <br>
-            
-            <h5 name="content_title">6. 제주도</h5>
-            <p name="content_text">
-                1. 제주시 한림항 / 조천항<br>
+        </div>
+  </div>
+  '),
+
+  ('id_7', '제주도','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+      지역별 낚시 명소
+    </h4>
+     <hr>
+        <div name="content_text">
+            <p> 
+                지역별로 낚시하기 좋은 장소들이 있습니다.<br>
+                이곳에 몇몇 낚시명소들에 대한 정보를 제공하겠습니다.<br>
+                이곳에 언급된 낚시명소들 외에도 전국에는 여러 낚시명소들이 있습니다.
+            </p><br>
+            <h4 class="fw-bold text-primary mb-3">
+            </h4>
+            <h4 class="fw-bold text-primary mb-3" name="content_title">
+                제주도
+            </h4>
+            <hr>
+            <strong name="content_title">
+                1. 제주시 한림항 / 조천항
+            </strong>
+            <p> 
                 제주 북부 항구 방파제 낚시.  <br>              
-                자리돔, 벵에돔, 감성돔 대상. <br>               
-                2. 서귀포 외돌개 / 문섬
-                갯바위낚시 명소. 다금바리, 돌돔 잡이 가능.  <br>              
-                3. 성산포항<br>
-                동부권 대표 선상낚시 출항지. <br>               
-                참돔, 방어, 부시리 등 대형 어종 출현.<br>  
+                자리돔, 벵에돔, 감성돔 대상.
             </p>
-    {% endblock %}
-</div>
+            <strong name="content_title">
+                2. 서귀포 외돌개 / 문섬
+            </strong>
+            <p> 
+                갯바위낚시 명소. 다금바리, 돌돔 잡이 가능. 
+            <strong name="content_title">
+                3. 성산포항
+            </strong>
+            <p> 
+                동부권 대표 선상낚시 출항지. <br>               
+                참돔, 방어, 부시리 등 대형 어종 출현.
+            </p>
+        </div>
+  </div>
+  '),
+
+
+  
+] %} 
