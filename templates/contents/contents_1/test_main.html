@@ -1,17 +1,18 @@
-<!-- advanced/templates/base.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}base.html{% endblock %}</title>
+    <title>어부바</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/contents.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
+    <main>
     <!-- logo -->
     <nav class="navbar navbar-expand-lg navbar-dark py-1" style="background-color: #024569;">
         <div class="container">
@@ -53,87 +54,47 @@
         </div>
     </nav>
 
-    <!-- 상단 네비게이션 -->
-    <div class="menu-wrapper bg-light border-bottom">
+    <!-- 히어로 섹션 -->
+    <section class="hero-section">
+        <h1>어부바</h1>
+        <p>젊은층의 어촌 귀어를 위한 정보를 제공합니다. (임시)</p>
+    </section>
+
+    <!-- 주요 섹션 -->
+    <section class="section-area py-5">
         <div class="container">
-            <div class="nav-item dropdown unified-dropdown w-100">
-                <!-- 상단 메뉴 버튼 -->
-                <div class="main-menu-buttons py-2">
-                    <a class="menu-btn" id="btn-1">어촌귀어란?</a>
-                    <a class="menu-btn" id="btn-2">어촌귀어의 혜택</a>
-                    <a class="menu-btn" id="btn-3">어업 안전</a>
-                    <a class="menu-btn" id="btn-4">스마트 양식 및 친환경 어업 기술</a>
-                    <a class="menu-btn" id="btn-5">어업 관련 정보</a>
-                </div>
-                
-                    <!-- 드롭다운 메뉴 영역 -->
-                <div class="dropdown-container px-3 pb-4">
-                    {% include "partials/top_menu_data.html" %}
-                </div>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a class="square-card" href="{{ url_for('main.section', folder='contents_1', page='귀어귀촌개념') }}">
+                    <h5>어촌귀어란?</h5>
+                    <p>어촌 귀어 지침이 어려운 이유에 대해 알아보세요</p>
+                </a>
+                <a class="square-card" href="{{ url_for('main.section', folder='contents_2', page='어촌이사혜택') }}">
+                    <h5>어촌귀어의 혜택</h5>
+                    <p>다양한 방법 안내</p>
+                </a>
+                <a class="square-card" href="{{ url_for('main.section', folder='contents_3', page='이상생태현상_산호초백화') }}">
+                    <h5>어업 안전</h5>
+                    <p>자료 및 통계 확인</p>
+                </a>
+                <a class="square-card" href="{{ url_for('main.section', folder='contents_4', page='IoTAI활용스마트양식기술소개') }}">
+                    <h5>스마트 양식 및 친환경 어업 기술</h5>
+                    <p>친환경 기술 소개</p>
+                </a>
+                <a class="square-card" href="{{ url_for('main.section', folder='contents_5', page='어업종류_양식어업') }}">
+                    <h5>어업 관련 정보</h5>
+                    <p>귀어 소식 확인</p>
+                </a>
             </div>
         </div>
-    </div>
-      
-    <!-- flash 메시지 (항상 페이지 상단에 노출되도록) -->
-     {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <div class="container mt-3">
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
-     {% endwith %}
+    </section>
 
-     <!-- 웹 알림 -->
-      {% if request.args.get("alert") %}
-      <script>
-        alert("{{ request.args.get('alert') }}");
-      </script>
-      {% endif %}
-
-    <!-- Main Content -->
-    <main class="flex-fill">
-        <div class="container-fluid px-5 py-5">
-            {% block content %}{% endblock %}
-        </div>
     </main>
-
     <!-- Footer -->
     <footer class="py-1 text-white text-center">
         <div class="container">
             <small>© 2025 어촌포털. All rights reserved.</small>
         </div>
     </footer>
-
-    <!-- 챗봇 아이콘 + 말풍선 -->
-    <div class="chatbot-fab-wrapper">
-        <!-- 말풍선 -->
-        <div class="chatbot-tooltip">
-            <strong>"궁금한 점이 있으신가요?"<br>
-            - 어부봇&nbsp;&nbsp;</strong>
-        </div>
-
-        <!-- 챗봇 아이콘 추가 -->
-        <a class="chatbot-fab" id="chatbotToggleBtn">
-            <img src="{{ url_for('static', filename='images/chatbot_icon.png') }}" alt="챗봇" class="chatbot-icon">
-        </a>
-    </div>
-
-    <!-- 챗봇 채팅창 -->
-    <div class="chatbot-window" id="chatbotWindow">
-        <div class="chatbot-header">어부바 챗봇
-          <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
-        </div>
-        <div class="chatbot-body">
-          <p>안녕하세요! 무엇을 도와드릴까요?</p>
-          <!-- 실제 챗봇 내용은 여기에 들어갑니다 -->
-        </div>
-    </div>
-      
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>

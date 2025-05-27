@@ -1,0 +1,84 @@
+/* advanced/static/css/main.css */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  
+    /* 영역 크기 */
+    height: 45vh;               
+    min-height: 300px;
+    max-height: 600px;
+  
+    /* 배경 이미지 */
+    position: relative;
+    background-image: url("/static/images/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #b2e0ff;
+    color: #fff;
+    overflow: hidden;
+    padding: 0;
+}
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.35));
+    z-index: 0;
+}
+.hero-section > * {
+    position: relative;
+    z-index: 1;
+}
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+.hero-section p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.square-card {
+    flex: 1 1 200px; /* ✅ 최소 200px, 공간 되면 자동 확장 */
+    max-width: 240px;
+    aspect-ratio: 1 / 1;
+    border: 1px solid #0077b6;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .square-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 119, 182, 0.12);
+  }
+
+  .square-card h5 {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+    color: #024569;
+    word-break: keep-all;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .square-card p {
+    word-break: keep-all;
+    white-space: normal;
+    overflow-wrap: break-word;
+    font-size: 0.88rem;
+    color: #333; /* ✅ 본문 색상 명시 */
+  }
