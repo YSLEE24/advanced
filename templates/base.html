@@ -112,28 +112,30 @@
 
     <!-- 챗봇 아이콘 + 말풍선 -->
     <div class="chatbot-fab-wrapper">
-        <!-- 말풍선 -->
         <div class="chatbot-tooltip">
-            <strong>"궁금한 점이 있으신가요?"<br>
-            - 어부봇&nbsp;&nbsp;</strong>
+          <strong>"궁금한 점이 있으신가요?"<br>- 어부봇&nbsp;&nbsp;</strong>
         </div>
-
-        <!-- 챗봇 아이콘 추가 -->
         <a class="chatbot-fab" id="chatbotToggleBtn">
-            <img src="{{ url_for('static', filename='images/chatbot_icon.png') }}" alt="챗봇" class="chatbot-icon">
+          <img src="{{ url_for('static', filename='images/chatbot_icon.png') }}" alt="챗봇" class="chatbot-icon">
         </a>
-    </div>
-
-    <!-- 챗봇 채팅창 -->
-    <div class="chatbot-window" id="chatbotWindow">
+      </div>
+      
+      <div class="chatbot-window" id="chatbotWindow">
         <div class="chatbot-header">어부바 챗봇
           <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
         </div>
         <div class="chatbot-body">
-          <p>안녕하세요! 무엇을 도와드릴까요?</p>
-          <!-- 실제 챗봇 내용은 여기에 들어갑니다 -->
+          <div id="chatArea" class="chat-area">
+            <p>안녕하세요! 무엇을 도와드릴까요?</p>
+          </div>
+          <div class="chatbot-input-wrapper">
+            <input type="text" id="chatInput" placeholder="질문을 입력하세요..." class="chatbot-input" />
+            <button id="chatSendBtn" class="chatbot-send">보내기</button>
+          </div>
         </div>
-    </div>
+      </div>
+      
+      <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
       
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
