@@ -1,34 +1,113 @@
-<!-- advanced/templates/main.html -->
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>어부바</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contents.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
 
-{% block title %}메인 뉴스{% endblock %}
+<body class="d-flex flex-column min-vh-100">
+    <main>
+    <!-- logo -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-1" style="background-color: #024569;">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">
+                <img src="{{ url_for('static', filename='images/logo.png') }}"
+                alt="어부바 로고"
+                height="28">
+            </a>
+        </div>
+    </nav>
+    
+    <!-- 상단 유저 메뉴: 유저 정보 or 로그인/회원가입 -->
+    <nav class="navbar navbar-expand bg-light py-1 border-bottom">
+        <div class="container d-flex justify-content-end">
+            {% if session.get('user_id') %}
+                <!-- 회원정보 표시 -->
+                 <div class="d-flex align-items-center gap-2">
+                    <img src="{{ url_for('static', filename=session.get('profile_image')) }}"
+                        alt="프로필 이미지"
+                        class="rounded-circle"
+                        style="width: 30px; height: 30px;">
+                    <span class="fw-semibold">{{ session.get('nickname') }}</span>
+                    <a class="nav-link text-secondary small" href="{{ url_for('auth.logout') }}">로그아웃</a>
+                 </div>
+            {% else %}
+                <!-- 회원정보가 없어서 로그인/회원가입 버튼 등장-->
+                <ul class="navbar-nav flex-row align-items-center user-menu">
+                    <li class="nav-item">
+                        <a class="nav-link small text-secondary px-2" href="{{ url_for('auth.login') }}">로그인</a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link text-muted px-1">|</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link small text-secondary px-2" href="{{ url_for('auth.register') }}">회원가입</a>
+                    </li>
+                </ul>
+            {% endif %}
+        </div>
+    </nav>
 
-{% block content %}
-<div class="row">
-    <!-- Main News -->
-    <div class="col-md-8">
-        <div class="card mb-4">
-            <div class="card-body">
-                <h2 class="card-title">Main News</h2>
-                <p class="card-text">여기에 메인 뉴스 내용이 들어갑니다 메롱. 예: 어촌 신규 정책 발표, 귀어 성공 사례 등 메롱.</p>
+    <!-- 히어로 섹션 -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <img src="{{ url_for('static', filename='images/main_logo_icon.png') }}" alt="어부바 로고" class="hero-title-image" />
+        </div>
+        <div class="hero-footer-text">
+            <p>어촌 귀어에 도움이 되는 정보를 제공합니다.</p>
+        </div>
+    </section>
+
+    <!-- 주요 섹션 -->
+    <section class="section-area py-5">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a class="square-card" href="{{ url_for('main.section', folder='contents_1', page='귀어귀촌개념') }}">
+                    <img src="{{ url_for('static', filename='images/icons/gwio_icon.png') }}" alt="귀어 아이콘" class="card-icon">
+                    <h5>어촌귀어란?</h5>
+                    <p>어촌 귀어 개념, 준비 절차, 어업 면허 / 허가 등 안내</p>
+                </a>
+                <a class="square-card" href="{{ url_for('main.section', folder='contents_2', page='어촌이사혜택') }}">
+                    <img src="{{ url_for('static', filename='images/icons/heteck_icon.png') }}" alt="혜택 아이콘" class="card-icon">
+                    <h5>어촌귀어의 혜택</h5>
+                    <p>정착지원금, 주택지원, 창업자금 등 다양한 정부 지원 제도와 혜택 안내</p>
+                </a>
+                <a class="square-card" href="{{ url_for('main.section', folder='contents_3', page='이상생태현상_산호초백화') }}">
+                    <img src="{{ url_for('static', filename='images/icons/safety_icon.png') }}" alt="귀어 아이콘" class="card-icon">
+                    <h5>어업 안전</h5>
+                    <p>해양 이상 생태 사례 소개 및 유해생물 종류 / 대응법 안내</p>
+                </a>
+                <a class="square-card" href="{{ url_for('main.section', folder='contents_4', page='IoTAI활용스마트양식') }}">
+                    <img src="{{ url_for('static', filename='images/icons/iotai_icon.png') }}" alt="귀어 아이콘" class="card-icon">
+                    <h5>스마트 양식 및 친환경 어업 기술</h5>
+                    <p>IoT·AI 기반 스마트 양식의 주요 기술과 적용 사례 / 친환경 지속 가능 어업의 개념과 실제 사례 소개</p>
+                </a>
+                <a class="square-card" href="{{ url_for('main.section', folder='contents_5', page='어업종류') }}">
+                    <img src="{{ url_for('static', filename='images/icons/fishnews_icon.png') }}" alt="귀어 아이콘" class="card-icon">
+                    <h5>어업 관련 정보</h5>
+                    <p>어업 종류, 지역별 주력 어종, 낚시 방법, 낚시 명소, 해루질 등 다양한 어업 관련 소식 제공</p>
+                </a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Sub News -->
-    <div class="col-md-4">
-        <div class="card mb-4">
-            <div class="card-header">Sub News Page 1</div>
-            <div class="card-body">
-                <p class="card-text">소식 요약 또는 카드 형식 서브 콘텐츠 메롱.</p>
-            </div>
+    </main>
+    <!-- Footer -->
+    <footer class="py-1 text-white text-center">
+        <div class="container">
+            <small>© 2025 어촌포털. All rights reserved.</small>
         </div>
-        <div class="card mb-4">
-            <div class="card-header">Sub News Page 2</div>
-            <div class="card-body">
-                <p class="card-text">추가 서브 뉴스나 공지사항 등을 배치할 수 있습니다람쥐 메롱.</p>
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock %}
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
