@@ -1,0 +1,103 @@
+<!--advanced/templates/contents/contents_1/test.html-->
+{% extends "contents/contents_base_tap.html" %}
+
+
+<!-- 페이지 이름 꼭 수정 필요 -->
+{% block title %}
+IoTAI활용스마트양식기술소개
+{% endblock %}
+
+<!--'id: 마음대로 입력 가능 (고유값)',
+    '탭 이름',
+    '탭 내용'
+-->
+
+{% set tabs = [
+  ('id_1', 'IoT·AI 활용 스마트 양식이란?','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+        IoT·AI 활용 스마트 양식이란?
+    </h4>
+    <hr>
+        <div name="content_text">
+            <p> 
+                스마트 양식은 전통적인 수산 양식 방식에 사물인터넷(IoT), 인공지능(AI), 빅데이터 등의 첨단 기술을 융합한 지능형 양식 시스템입니다.
+                기존의 양식 방식은 수질 변화나 질병 발생을 사람이 직접 보고 판단하고 대응해야 했지만, 스마트 양식은 센서와 알고리즘이 실시간으로 판단하고 자동 제어합니다.
+            </p>
+        </div>
+  </div>
+  '),
+  ('id_2', '주요 기술 설명','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+        주요 기술 설명
+    </h4>
+    <hr>
+        <div name="content_text">
+            <strong name="content_title">IoT 센서</strong>
+            <p name="content_text">
+                양식장 물속에 센서를 설치하여 수온, 산소 농도, 염분, pH, 탁도 등 수질 정보를 초 단위로 측정합니다.
+                측정된 정보는 클라우드 서버로 전송되어 실시간 모니터링과 자동 제어가 가능합니다.
+            </p>
+            
+            <strong name="content_title">AI 알고리즘</strong>
+            <p name="content_text">
+                수중 카메라와 AI를 통해 물고기의 행동 패턴, 섭식량, 이동 속도, 건강 상태 등을 분석합니다.
+                이를 바탕으로 질병 징후를 조기에 감지하거나 적절한 사료 공급 시점을 자동 판단합니다.
+            </p>
+            
+            <strong name="content_title">빅데이터 기반 의사결정</strong>
+            <p name="content_text">
+                수개월, 수년간 축적된 데이터를 분석해 어종별 성장 패턴, 최적 환경 조건, 사료 효율 등을 예측하여
+                운영 전략을 자동 추천하거나 효율적인 스케줄링이 가능합니다.
+            </p>
+        </div>
+  </div>
+  '),
+
+  ('id_3', '스마트 양식의 실제 적용 사례','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+        스마트 양식의 실제 적용 사례
+    </h4>
+    <hr>
+        <div name="content_text">
+            
+            <strong name="content_title">AI 기반 자동 사료 공급 시스템</strong>
+            <p name="content_text">
+                어류의 식욕은 수온, 시간대, 개체 크기, 건강 상태에 따라 달라지기 때문에
+                AI는 수중 카메라와 센서 데이터를 분석해 지금 먹이를 줘야 하는지, 얼마나 줘야 하는지를 판단합니다.
+                기존에는 일정 시간마다 정량을 일괄 투입했지만, 스마트 양식은 필요할 때만 최소한의 양을 정밀 공급합니다.
+                <p>효과 : 사료비 절감 (최대 20~30%), 수질 악화 예방 (과잉 사료로 인한 부패 방지)</p>
+            </p>
+            
+            <strong name="content_title">실시간 수질 모니터링 및 제어</strong>
+            <p name="content_text">
+                센서가 지속적으로 수온, 산소, pH를 측정하며,
+                정해진 기준값을 벗어나면 시스템이 자동으로 산소 공급기 가동, 물 교체, 알림 전송 등을 수행합니다.
+                <p>효과 : 위험 발생 전 조기 대응 가능, 질병 및 스트레스 요인 최소화</p>
+            </p>
+            
+            <strong name="content_title">AI로 질병 및 성장 상태 분석</strong>
+            <p name="content_text">
+                AI가 물고기의 수중 영상 데이터를 분석하여
+                비정상적인 움직임, 부유 행동, 색깔 변화 등을 인식합니다.
+                질병의 전조 증상을 빠르게 파악해 조기 격리 및 대응이 가능합니다.
+                또한, 영상 분석으로 크기·성장률 측정도 가능해 출하 시점을 정밀하게 예측할 수 있습니다.
+                <p>효과 : 치명적인 질병 확산 방지, 출하시기 최적화 → 단가 향상</p>
+            </p>
+            
+            <strong name="content_title">클라우드 기반 원격 제어 시스템</strong>
+            <p name="content_text">
+                스마트폰이나 PC를 통해 어디서든 실시간으로 양식장 상태를 확인하고 조작할 수 있습니다.
+                예: 농장주가 출타 중에도 스마트폰으로 산소 공급기를 원격 제어하거나, 수질 데이터를 확인 가능
+                <p>효과 : 24시간 대응 가능, 노동력 부담 경감 / 무인 양식 기반</p>
+            </p>
+        </div>
+  </div>
+  '),
+ 
+  
+  ] %} 
+  
+  </p>
