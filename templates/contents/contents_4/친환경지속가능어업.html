@@ -1,89 +1,163 @@
-<!-- advanced/templates/contents/contents_1/친환경지속가능어업사례및기술.html-->
-{% extends "contents/contents_base.html" %}
+<!--advanced/templates/contents/contents_1/test.html-->
+{% extends "contents/contents_base_tap.html" %}
 
+
+<!-- 페이지 이름 꼭 수정 필요 -->
 {% block title %}
-친환경 지속가능 어업 사례 및 기술
+친환경지속가능어업
 {% endblock %}
 
-<div name="section">
-    {% block content_title %}
+<!--'id: 마음대로 입력 가능 (고유값)',
+    '탭 이름',
+    '탭 내용'
+-->
+
+{% set tabs = [
+  ('id_1', '친환경 지속가능 어업이란?','
+  <div name="section">
     <h4 class="fw-bold text-primary mb-3" name="content_title">
-        IoT·AI 활용 스마트 양식의 실제 적용 사례
+        친환경 지속가능 어업이란?
     </h4>
     <hr>
-   
-    {% endblock %}
+        <div name="content_text">
+            <p> 
+                친환경 지속가능 어업은 어업 생산 활동을 하면서 해양 생태계의 균형을 해치지 않고,
+                미래 세대도 수산 자원을 이용할 수 있도록 지속 가능한 방식으로 어업을 수행하는 개념입니다.
+                <br>
+                단순히 어획량을 줄이는 것이 아니라 (자원 관리 ,생태계 보호 ,어업인의 생계 유지) 가 조화롭게 공존하는 어업 방식을 말합니다.
+                <br>
+                <br>
+                어린 물고기 포획을 금지하고 금어기와 금지구역을 철저히 준수하여 해양 자원을 보호하며,
+                <br> 
+                바닥 파괴를 최소화하는 어구와 혼획을 줄이는 장비를 사용해 저영향 어업을 실천합니다.
+                <br> 
+                또한, 지역 공동체가 자율적으로 관리하고 수익을 공유하는 사회적 책임을 다하며,
+                <br>
+                해양관리협의회(MSC)와 국내 친환경수산물 인증 등 친환경 인증을 받아 지속 가능한 어업을 추구합니다.
+            </p>
+        </div>
+  </div>
+  '),
+  ('id_2', '기술 및 사례','
+  <div name="section">
+    <h4 class="fw-bold text-primary mb-3" name="content_title">
+        친환경 지속가능 어업의 기술 및 사례
+    </h4>
+    <hr>
+        <div name="content_text">
+            <strong name="content_title">친환경 어구 사용 (혼획 방지 장비)</strong>
+            <p name="content_text">
+                고래, 돌고래, 바다거북 등 비표적 어종이 어망에 걸리는 혼획 문제를 줄이기 위해
+                TSD(Turtle Safe Device), LED 부착 어망, 선택적 어획망 등의 장비가 사용됩니다.
+                <p style="font-size: 12px;">효과 : 바다생물 보호, 어획 효율 증가 (불필요한 잡어 제거)</p>
+            </p>
+            
+            <strong name="content_title">금어기·금지구역 준수 및 자율 관리</strong>
+            <p name="content_text">
+                정부 주도뿐 아니라, 어민 스스로 조업 기간, 장소, 방법을 정하고 지키는
+                자율관리어업 제도 운영 중입니다.
+                <p style="font-size: 12px;">효과 : 지역 어장 회복, 공동체 주도의 자율성과 책임 강화</p>
+            </p>
+            
+            <strong name="content_title">국제 지속가능 인증 도입 (예: MSC 인증)</strong>
+            <p name="content_text">
+                국제 인증제인 MSC(Marine Stewardship Council) 는
+                수산물이 지속가능한 어업에 의해 포획되었음을 인증하는 제도입니다.
+                <p style="font-size: 12px;">효과 : 인증 수산물은 가격 프리미엄 형성, (유럽, 북미) 등 수출 필수 요건이 되기도 함</p>
+            </p>
+            
+            <strong name="content_title">과학 기반 자원 조사 및 어획량 조절</strong>
+            <p name="content_text">
+                수산자원 조사를 통해 종별 개체수, 산란기, 성장 주기를 과학적으로 분석하고
+                이에 따라 **어획 총량(TAC)**을 설정하는 방식이 확대되고 있습니다.
+                <p style="font-size: 12px;">효과 : 자원 남획 방지, 장기적 어업 수익 유지</p>
+            </p>
+            
+            <strong name="content_title">ICT·위성 활용 해양 감시</strong>
+            <p name="content_text">
+                드론, 위성, AIS(Automatic Identification System) 등을 통해
+                불법어업(FIU) 단속 강화, 어장 모니터링, 자원 회복 추적 등을 진행 중입니다.
+                <p style="font-size: 12px;">효과 : 관리 범위 확대, 투명한 어업 활동 증명 가능</p>
+            </p>
+        </div>
+  </div>
+  '),
 
-
-    {% block content_body %}
-   
-    
-    <div name="content_text">
-        <h5>1. AI 기반 자동 사료 공급 시스템</h5> 
-
-       
-        어류의 식욕은 수온, 시간대, 개체 크기, 건강 상태에 따라 달라지기 때문에
-        AI는 수중 카메라와 센서 데이터를 분석해 지금 먹이를 줘야 하는지, 얼마나 줘야 하는지를 판단합니다.
-        <br>
-        기존에는 일정 시간마다 정량을 일괄 투입했지만, 스마트 양식은 필요할 때만 최소한의 양을 정밀 공급합니다.
-        <p></p>
-        사료비 절감 (최대 20~30%)
-        <br>
-        수질 악화 예방 (과잉 사료로 인한 부패 방지)
-        
-        <p>
-            <h5>2. 실시간 수질 모니터링 및 제어</h5>
-        </p>
-
-        <p>
-        센서가 지속적으로 수온, 산소, pH를 측정하며, 정해진 기준값을 벗어나면 시스템이 자동으로 산소 공급기 가동, 
-        물 교체, 알림 전송 등을 수행합니다.
-        </p>
-        <br>
-        <strong>적용 예시 </strong>
-        <br>
-        산소 농도 < 기준치 → 산소 공급기 자동 작동
-        <br>
-        수온 급변 → 히터/냉각장치 작동 + 관리자 알림
-        <br>
-        <strong>결과</strong>
-        <br>위험 발생 전 조기 대응 가능
-        <br>질병 및 스트레스 요인 최소화
-
-        <p>
-        <h5>3. AI로 질병 및 성장 상태 분석</h5> 
-        </p>
-        
-        <p>
-        AI가 물고기의 수중 영상 데이터를 분석하여
-        비정상적인 움직임, 부유 행동, 색깔 변화 등을 인식합니다.
-        질병의 전조 증상을 빠르게 파악해 조기 격리 및 대응이 가능합니다.
-        또한, 영상 분석으로 크기·성장률 측정도 가능해 출하 시점을 정밀하게 예측할 수 있습니다.
-        </p>
-        
-        <strong>결과</strong>
-        <br>
-        치명적인 질병 확산 방지 , 출하시기 최적화 → 단가 향상
-
-        <p>
-            <h5>4. 클라우드 기반 원격 제어 시스템</h5>
-        </p>
-        스마트폰이나 PC를 통해 어디서든 실시간으로 양식장 상태를 확인하고 조작할 수 있습니다.
-        <br>
-        예시: 농장주가 출타 중에도 스마트폰으로 산소 공급기를 원격 제어하거나, 수질 데이터를 확인 가능
-        <P>
-        24시간 대응 가능
-        <br>
-        노동력 부담 경감 / 무인 양식 기반
-        </P>
-
+  ('id_3', '친환경 바이오플락','
+    <div name="section">
+        <h4 class="fw-bold text-primary mb-3" name="content_title">
+            친환경 바이오플락
+        </h4>
+        <hr>
+        <div name="content_text" >
+            <div style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 20px;
+                justify-items: center;
+                margin-top: 20px;
+                padding: 0 10px;
+                max-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+            ">
+                <div style="
+                    width: 280px;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+                    text-align: center;
+                ">
+                    <a href="https://www.nifs.go.kr/distantwater/skin/doc.html?fn=1578457862828.pdf&amp;rs=/distantwater/preview/Board0027/" 
+                    target="_blank" title="새창으로 열림" style="text-decoration: none; color: inherit;">
+                        <img src="../../../static/images/ebook_23.jpg" alt="친환경 바이오플락 양식기술" 
+                            style="width: 100%; height: auto;">
+                        <div style="
+                            color: #0077b6;
+                            padding: 15px;
+                            font-size: 16px;
+                            font-weight: 500;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        " class="tit">친환경 바이오플락 양식기술</div>
+                    </a> 
+                </div>
+                <div style="
+                    width: 280px;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+                    text-align: center;
+                ">
+                    <a href="https://www.nifs.go.kr/distantwater/skin/doc.html?fn=20220302091356987_0.pdf&amp;rs=/distantwater/preview/Board0027/" 
+                    target="_blank" title="새창으로 열림" style="text-decoration: none; color: inherit;">
+                        <img src="../../../static/images/ebook_16.jpg" alt="친환경 새우양식을 위한 바이오플락 양식기술" 
+                            style="width: 100%; height: auto;">
+                        <div style="
+                            color: #0077b6;
+                            padding: 15px;
+                            font-size: 16px;
+                            font-weight: 500;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        " class="tit">친환경 새우양식을 위한 바이오플락 양식기술</div>
+                    </a> 
+                </div>
+            </div>
+        </div>
     </div>
-
-    
+    <br>
+    <br>
     <p style="text-align: right; font-size: 0.8em; color: #666;">
-    출처: 
-    <a href="" target="_blank" rel="noopener noreferrer"></a>
+    출처: <a href="https://www.nifs.go.kr/contents/actionContentsCons0102.do" target="_blank" rel="noopener noreferrer">국립수산과학원</a>
     </p>
-      
-    {% endblock %}
-</div>
+  '),
+ 
+  
+  ] %} 
+  
+  </p>
