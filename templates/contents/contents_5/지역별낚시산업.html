@@ -1,0 +1,337 @@
+<!--advanced/templates/contents/contents_1/test.html-->
+{% extends "contents/contents_base_tap.html" %}
+
+<!-- 페이지 이름 꼭 수정 필요 -->
+{% block title %}
+지역별 낚시산업
+{% endblock %}
+
+
+{% set tabs = [
+  ('id_1', '경기·인천·서울','
+    <div name="section">
+        <h4 class="fw-bold text-primary mb-3" name="content_title">
+            경기·인천·서울
+        </h4>
+        <hr>
+        <div name="table" style="width: 100%;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-family: Arial, sans-serif;">
+                <thead style="background-color: #f0f4f8;">
+                <tr>
+                    <th style="padding: 12px; width: 12%;">상호명</th>
+                    <th style="padding: 12px; width: 14%;">사업영역</th>
+                    <th style="padding: 12px; width: 32%;">사업장주소</th>
+                    <th style="padding: 12px; width: 10%;">대표자</th>
+                    <th style="padding: 12px; width: 12%;">전화번호</th>
+                    <th style="padding: 12px; width: 20%;">홈페이지</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr style="border-top: 1px solid #ccc;">
+                    <td style="padding: 10px;">(사)한국낚시협회</td>
+                    <td style="padding: 10px;">사단법인 한국낚시협회</td>
+                    <td style="padding: 10px;">서울 금천구 두산로 70 (독산동, 현대지식산업센터)B동 1311호</td>
+                    <td style="padding: 10px;">정연화, 김정구 공동회장</td>
+                    <td style="padding: 10px;">02-2181-3560</td>
+                    <td style="padding: 10px;">
+                        <a href="http://ekfa.kr" target="_blank">
+                            http://ekfa.kr
+                        </a>
+                    </td>
+                </tr>
+
+                <tr style="border-top: 1px solid #ccc;">
+                    <td style="padding: 10px;">(사)한국낚시협회</td>
+                    <td style="padding: 10px;">사단법인 한국낚시협회</td>
+                    <td style="padding: 10px;">서울 금천구 두산로 70 (독산동, 현대지식산업센터)B동 1311호</td>
+                    <td style="padding: 10px;">정연화, 김정구 공동회장</td>
+                    <td style="padding: 10px;">02-2181-3560</td>
+                    <td style="padding: 10px;">
+                        <a href="http://ekfa.kr" target="_blank">
+                            http://ekfa.kr
+                        </a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p hidden name="content_text">
+        
+    </p>
+  '),
+
+  ('id_2', '부산·울산·경상','
+    <div name="section">
+        <h4 class="fw-bold text-primary mb-3" name="content_title">
+            부산·울산·경상
+        </h4>
+        <hr>
+        <div name="table" style="width: 100%;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-family: Arial, sans-serif;">
+                <thead style="background-color: #f0f4f8;">
+                <tr>
+                    <th style="padding: 12px; width: 12%;">상호명</th>
+                    <th style="padding: 12px; width: 14%;">사업영역</th>
+                    <th style="padding: 12px; width: 32%;">사업장주소</th>
+                    <th style="padding: 12px; width: 10%;">대표자</th>
+                    <th style="padding: 12px; width: 12%;">전화번호</th>
+                    <th style="padding: 12px; width: 20%;">홈페이지</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr style="border-top: 1px solid #ccc;">
+                    <td style="padding: 10px;">(사)한국낚시협회</td>
+                    <td style="padding: 10px;">사단법인 한국낚시협회</td>
+                    <td style="padding: 10px;">서울 금천구 두산로 70 (독산동, 현대지식산업센터)B동 1311호</td>
+                    <td style="padding: 10px;">정연화, 김정구 공동회장</td>
+                    <td style="padding: 10px;">02-2181-3560</td>
+                    <td style="padding: 10px;">
+                        <a href="http://ekfa.kr" target="_blank">
+                            http://ekfa.kr
+                        </a>
+                    </td>
+                </tr>
+
+                <tr style="border-top: 1px solid #ccc;">
+                    <td style="padding: 10px;">(사)한국낚시협회</td>
+                    <td style="padding: 10px;">사단법인 한국낚시협회</td>
+                    <td style="padding: 10px;">서울 금천구 두산로 70 (독산동, 현대지식산업센터)B동 1311호</td>
+                    <td style="padding: 10px;">정연화, 김정구 공동회장</td>
+                    <td style="padding: 10px;">02-2181-3560</td>
+                    <td style="padding: 10px;">
+                        <a href="http://ekfa.kr" target="_blank">
+                            http://ekfa.kr
+                        </a>
+                    </td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p hidden name="content_text">
+        
+    </p>
+  '),
+
+  
+] %} 
+
+<!-- ('id_2', '경기·인천·서울','
+    <div name="section">
+        <h4 class="fw-bold text-primary mb-3" name="content_title">
+            경기·인천·서울
+        </h4>
+        <hr>
+        <div name="content_text">
+            <strong>
+                1. 아오맥스(평택시 청북읍)
+            </strong>
+            <p> 
+                낚시대 개발·제조·판매<br>                
+                031-663-7898<br>
+            </p>
+            <strong>
+                2. 런커 (용인시 기흥구)
+            </strong>
+            <p> 
+                낚시용품 유통<br>               
+                02-482-9212<br> 
+            </p>
+            <strong>
+                3. 다미끼크라프트(안양시 동안구)
+            </strong>
+            <p> 
+                루어·의류<br>              
+                031-348-9201
+            </p>
+            <strong>
+                4. 배스랜드(하남시)
+            </strong>
+            <p> 
+                루어낚시 용품<br>              
+                02-470-5571
+            </p>
+            <strong>
+                5. 피싱조이(인천 남동구)
+            </strong>
+            <p> 
+                낚시용 배터리 제조<br>              
+                032-811-1880
+            </p>
+            <strong>
+                6. 에프마켓(인천 남구)
+            </strong>
+            <p> 
+                낚시 장비 판매<br>              
+                032-872-2782
+            </p>
+        </div>
+  </div>
+  '),
+
+  ('id_3', ' 부산·울산·경상','
+  <div name="section">
+      <h4 class="fw-bold text-primary mb-3" name="content_title">
+          부산·울산·경상
+        </h4>
+        <hr>
+        <div name="content_text">
+            <strong>
+                1. 유승조구산업(부산 사하구)
+            </strong>
+            <p> 
+                낚시바늘 제조  
+            </p>
+            <strong>
+                2. 긱스(부산 수영구)
+            </strong>
+            <p> 
+                낚시장비 및 콘텐츠 제작 <br>           
+                051-624-5040
+            </p>
+            <strong>
+                3. 동남보트 레저산업(부산 진구)
+            </strong>
+            <p> 
+                보트 제작·판매 <br>               
+                051-817-7075<br>
+            </p>
+            <strong>
+                4. (주)용성(부산 사하구)
+            </strong>
+            <p> 
+                낚시대 제조 <br>               
+                051-261-4555
+            </p>
+            <strong>
+                5. 만남낚시점(거제시 장목면)
+            </strong>
+            <p> 
+                낚시용품, 낚시대 제조 및 판매<br>
+                055-295-3655
+            </p>
+            <strong>pu
+                6. 365낚시마트(창원시 마산회원구)
+            </strong>
+            <p> 
+                선상낚시 출항지로 인기. <br>               
+                055-295-3655 <br>
+            </p>
+            <strong>
+                7. 현대상사(경북 경산시)
+            </strong>
+            <p> 
+                낚시 가방, 의자 <br>               
+                053-812-2775 
+            </p>
+            <strong>
+                8. 가자낚시(울산 중구 염포로)
+            </strong>
+            <p> 
+                낚시장비 판매·출조정보<br>               
+                052-287-8990  <br>
+            </p>
+        </div>
+  </div>
+  '),
+
+  ('id_4', ' 전라도','
+  <div name="section">
+      <h4 class="fw-bold text-primary mb-3" name="content_title">
+          전라도
+        </h4>
+        <hr>
+        <div name="content_text">
+            <strong>
+                1. 여수만물상낚시(여수시 이순신광장로 67 (중앙동))
+            </strong>
+            <p> 
+                선상낚시, 문어·쭈꾸미·갑오징어·볼락·참돔 낚시<br>         
+                061-662-8560 
+            </p>
+            <strong>
+                2. 군산낚시일번지(군산시 새만금북로 231)
+            </strong>
+            <p> 
+                낚시장비, 어구 판매, 출조정보 제공<br>               
+                063-471-1788
+            </p>
+        </div>
+  </div>
+  '),
+
+  ('id_5', '충청도','
+  <div name="section">
+      <h4 class="fw-bold text-primary mb-3" name="content_title">
+          충청도
+        </h4>
+        <hr>
+        <div name="content_text">
+            <strong>
+                1. 새서울낚시(당진시 송악읍)
+            </strong>
+            <p> 
+                종합 낚시용품점 <br>               
+                041-357-5805
+            </p>
+            <strong>
+                2. 당진낚시할인마트(당진시)
+            </strong>
+            <p> 
+                낚시용품 할인 판매점<br>           
+                041-356-1119
+            </p>
+            <strong>
+                3. 낚시프라자(천안시 서북구 쌍용대로 206)
+            </strong>
+            <p> 
+                낚시장비 판매점<br>              
+                041-578-0014
+            </p>
+        </div>
+  </div>
+  '),
+
+  ('id_6', ' 제주도','
+  <div name="section">
+      <h4 class="fw-bold text-primary mb-3" name="content_title">
+          제주도
+        </h4>
+        <hr>
+        <div name="content_text">
+            <strong>
+                1. 탐라낚시(제주도 이도2동 413-1)
+            </strong>
+            <p> 
+                종합 낚시 용품점<br>               
+                064-721-7826.
+            </p>
+            <strong>
+                2. 제주낚시점(제주시 탑동로73)
+            </strong>
+            <p> 
+                종합 낚시 용품점<br>               
+                064-722-6024<br>
+            </p>
+            <strong>
+                3. 반도낚시(서귀포시 대정읍 하모리 2126)
+            </strong>
+            <p> 
+                종합 낚시 용품점 <br>             
+                064-794-8008
+            </p>
+            <strong>
+                4. 만능낚시프라자(제주시 조천읍 함덕리 960-27)
+            </strong>
+            <p> 
+                종합 낚시 용품점<br>                
+                064-783-9566
+            </p>
+        </div>
+  </div>
+  '), -->
