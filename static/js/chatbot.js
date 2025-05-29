@@ -9,12 +9,34 @@ function toggleChatbot() {
   chatbotWindow.classList.toggle("open");
 }
 
+
+// 메시지 저장
+function saveChatMessage(sender, message) {
+  let chatHistory = JSON.parse(sessionStorage.getItem("chatHistory")) || [];
+  chatHistory.push({ sender, message });
+  sessionStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+}
+
+function loadChatHistory() {
+  const body = document.querySelector(".chatbot-body");
+  const chatHistory = JSON.parse(sessionStorage.getItem("chatHistory")) || [];
+  chatHistory.forEach(entry => {
+    const div = document.createElement("div");
+    div.className = `chat-message chat-${entry.sender}`;
+    div.innerHTML = entry.message.replace(/\n/g, "<br>");
+    body.appendChild(div);
+  });
+  body.scrollTop = body.scrollHeight;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const chatbotToggle = document.getElementById("chatbotToggleBtn");
   chatbotToggle.addEventListener("click", toggleChatbot);
 
   const input = document.querySelector(".chatbot-input");
   const body = document.querySelector(".chatbot-body");
+
+  loadChatHistory();
 
   input.addEventListener("keypress", function (e) {
     if (e.key === "Enter" && input.value.trim() !== "") {
@@ -24,6 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // 사용자 메시지 출력
       body.innerHTML += `<div class="chat-message chat-user">${userMessage}</div>`;
+
+      saveChatMessage("user", userMessage); // 저장
 
       // 로딩 중 메시지 표시
       const loadingId = `loading-${Date.now()}`;
@@ -58,8 +82,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
           answerHtml += `</div>`;
           body.innerHTML += answerHtml;
+          saveChatMessage("bot", data.response);
         } else if (data.error) {
           body.innerHTML += `<div class="chat-message chat-bot error">⚠️ 오류: ${data.error}</div>`;
+          saveChatMessage("bot", `⚠️ 오류: ${data.error}`);
         }
 
         body.scrollTop = body.scrollHeight;
@@ -67,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch(err => {
         console.error("🚨 네트워크 오류:", err); // 콘솔창에 에러 로그 출력
         body.innerHTML += `<div class="chat-message chat-bot error">⚠️ 네트워크 오류: ${err.message}</div>`;
+        saveChatMessage("bot", `⚠️ 네트워크 오류: ${err.message}`);
       });
 
     }

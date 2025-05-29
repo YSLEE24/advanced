@@ -32,8 +32,8 @@
   position: fixed;
   bottom: 80px;
   right: 30px;
-  width: 300px;
-  max-height: 400px;
+  width: 350px;
+  max-height: 1000px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -73,6 +73,7 @@
   background-color: #fefefe;
   display: flex;
   flex-direction: column;
+  height: 330px;
 }
 
 /* 사용자 입력창 영역 */
