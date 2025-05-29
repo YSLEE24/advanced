@@ -13,8 +13,8 @@ def extract_and_save_faiss(base_dir="templates/contents", out_path="faiss_store/
 
     # 텍스트 분할
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=300,
-        chunk_overlap=50,
+        chunk_size=200,
+        chunk_overlap=40,
         separators=["\n\n", "\n", ".", " ", ""],
     )
 
@@ -34,16 +34,34 @@ def extract_and_save_faiss(base_dir="templates/contents", out_path="faiss_store/
         sections = soup.select('[name="section"]')
         for section in sections:
             titles = section.select('[name="content_title"]')
-            contents = section.select('[name="content_text"]')
+            # contents = section.select('[name="content_text"]')
             # 제목과 본문이 정확히 하나씩 있을 때만 처리 (1:1로 설정, 정확히 한 쌍일 때만 처리)
-            if len(titles) == 1 and len(contents) == 1:
-                title = titles[0].get_text(strip=True) # strip으로 태그 제거, 공백 제거
-                content = contents[0].get_text(strip=True)
-                # 본문을 chunk 단위로 나누기 -> 정밀도 높이기 위함(너무 길면 정확도 떨어짐..)
-                chunks = splitter.split_text(content)
-                for chunk in chunks:
-                    # 각 조각을 리스트에 추가 (title, chunk 내용, 폴더, 파일명)
-                    contentList.append([title, chunk, folder, page])
+            # if len(titles) == 1 and len(contents) == 1:
+            #     title = titles[0].get_text(strip=True) # strip으로 태그 제거, 공백 제거
+            #     content = contents[0].get_text(strip=True)
+            #     # 본문을 chunk 단위로 나누기 -> 정밀도 높이기 위함(너무 길면 정확도 떨어짐..)
+            #     chunks = splitter.split_text(content)
+            #     for chunk in chunks:
+            #         # 각 조각을 리스트에 추가 (title, chunk 내용, 폴더, 파일명)
+            #         #contentList.append([title, chunk, folder, page])
+            #         contentList.append([title, f"{title}\n{chunk}", folder, page])
+            
+            # title 먼저 추출 (있을 때만)
+            title = titles[0].get_text(strip=True) if len(titles) > 0 else ""
+
+            # 전체 section 텍스트 추출 (title, 본문 등 전부)
+            section_text = section.get_text(separator="\n", strip=True)
+
+            # 전체를 합쳐서 의미 기반 벡터 생성에 활용
+            # full_text = f"{title}\n{page}\n{section_text}"
+            if title:
+                full_text = f"{title}\n{section_text}\n{page}"
+            else:
+                full_text = f"{section_text}\n{page}"
+
+            chunks = splitter.split_text(full_text)
+            for chunk in chunks:
+                contentList.append([title, chunk, folder, page])
 
     # 데이터프레임으로 변환
     df = pd.DataFrame(contentList, columns=["title", "content", "folder", "page"])
@@ -64,7 +82,20 @@ def extract_and_save_faiss(base_dir="templates/contents", out_path="faiss_store/
 
 
     # 임베딩 모델 LOAD
-    embedding_model = HuggingFaceEmbeddings(model_name="jhgan/ko-sroberta-multitask")
+    # embedding_model = HuggingFaceEmbeddings(model_name="jhgan/ko-sroberta-multitask")
+    # embedding_model = HuggingFaceEmbeddings(model_name="BM-K/KoSimCSE-roberta")
+    embedding_model = HuggingFaceEmbeddings(model_name="snunlp/KR-SBERT-V40K-klueNLI-augSTS")
+    # embedding_model = HuggingFaceEmbeddings(model_name="jhgan/ko-sbert-sts")
+    # embedding_model = HuggingFaceEmbeddings(model_name="BM-K/KoSimCSE-roberta-multitask")
+
+
+    print("\n📌 '귀어'가 포함된 chunk들:")
+    for i, doc in enumerate(documents):
+        if "귀어" in doc.page_content:
+            print(f"\n[{i}] {doc.metadata.get('source')}")
+            print(doc.page_content[:300])
+
+
     # FAISS 벡터 DB 생성
     vectorstore = FAISS.from_documents(documents=documents, embedding=embedding_model)
     vectorstore.save_local(out_path) # 지정 경로에 저장

@@ -5,6 +5,7 @@ from langchain.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 import os
+import re
 
 # TensorFlow 자동 로딩 방지 (속도 개선)
 os.environ["USE_TF"] = "0"
@@ -22,30 +23,27 @@ vectordb = FAISS.load_local(
 )
 
 # Retriever 생성
-retriever = vectordb.as_retriever(search_kwargs={"k": 5})
+retriever = vectordb.as_retriever(
+    search_type="similarity",  # ✅ MMR 말고 단순 유사도 기반
+    search_kwargs={"k": 4}
+)
 
 # 프롬프트 템플릿 정의
 prompt_template = PromptTemplate(
     input_variables=["context", "question"],
     template="""
-당신은 귀어귀촌을 하는 사람들을 도와줄 유용한 정보를 제공하는 전문 챗봇입니다.
+    너는 어촌 정착, 귀어귀촌 지원에 대해 잘 아는 상담 챗봇이야.
+    다음 문서들을 참고해서 '귀어'나 관련 정책에 대해 최대한 정확하고 간단히 알려줘.
+    참고해야 할 문서에 없는 내용은 답하지마.
 
-다음은 참고해야 할 문서 내용입니다:
-----------------
-{context}
-----------------
+    참고 문서:
+    {context}
 
-위 내용을 바탕으로 사용자의 질문에 다음 방식으로 응답하세요:
-1. 구조적이고 깔끔하고 간결하게 요약합니다.
-2. 너무 긴 문장 대신 짧은 문장으로 씁니다.
-3. 단계가 있는 경우 구분을 제외하고 간략하게 설명합니다.
-4. 말을 예쁘고 부드럽게 마무리합니다.
-5. 말끝 마무리 인삿말(예: 편안한 하루 되세요)은 생략하세요.
-6. 오직 질문에 대한 핵심 정보만 전달하세요.
+    사용자 질문:
+    {question}
 
-질문: {question}
-답변:
-"""
+    답변:
+    """
 )
 
 # Google Gemini Flash 연결
@@ -61,15 +59,64 @@ qa_chain = RetrievalQA.from_chain_type(
     chain_type="stuff",
     retriever=retriever,
     return_source_documents=True,
-    chain_type_kwargs={"prompt": prompt_template}
+    chain_type_kwargs={"prompt": prompt_template},
+    input_key="question"
 )
+
+# ✅ 질문 정규화 함수 추가 (기존 흐름 안 건드림)
+def normalize_query(query):
+    query = query.strip()
+    
+    # 구어체 서술형 종결 표현을 공식 표현으로 정규화
+    replacements = {
+        # 가장 일반적인 "뭐야", "뭐에요", "뭔가요" 계열
+        r"(이|가)?\s*(뭐야|뭐임|머임|머야|뭐에요|뭐예요|뭐냐|뭐니|뭔가요|\?)$": "란 무엇인가요",
+        
+        # "모야", "모임", "머임", "머게", "모게" 등 오타/구어체도 흡수
+        r"(이|가)?\s*(모야|모임|머게|모게|머임|머야)$": "란 무엇인가요",
+
+        # "뭔데", "몬데", "뭐게", "뭐길래"도 대응
+        r"(이|가)?\s*(뭔데|뭐게|뭐길래|몬데)$": "란 무엇인가요",
+
+        # "뭐라", "뭐라고", "머라", "머라고"
+        r"(이|가)?\s*(뭐라|뭐라고|머라|머라고)$": "란 무엇인가요",
+
+        # "뜻이 뭐야", "뜻 알려줘", "무슨 뜻" 등
+        r"(이|가)?\s*(뜻)?\s*(이)?\s*(뭐야|뭐에요|뭐임|머임|머야)?$": "란 무엇인가요",
+
+        # "~에 대해 알려줘", "~설명해줘", "~궁금해", "~말해줘"
+        r"(에 대해)?\s*(알려줘|설명해줘|궁금해|말해줘)$": "란 무엇인가요",
+    }
+
+    for pattern, replacement in replacements.items():
+        if re.search(pattern, query):
+            return re.sub(pattern, replacement, query)
+    return query
 
 # 챗 응답 처리 함수
 def get_chat_response(query):
-    result = qa_chain.invoke({"query": query})
+    # ✅ 정규화 로그 출력 (추가)
+    print("[질문 원본]:", query)
+    
+    # ✅ 전처리 적용
+    normalized_query = normalize_query(query)
+    
+    # ✅ 정규화 결과 확인
+    print("[정규화된 질문]:", normalized_query)
+
+    # 1. 유사도 점수 확인용
+    docs_with_scores = vectordb.similarity_search_with_score(normalized_query, k=5)
+
+    result = qa_chain.invoke({"question": normalized_query})
 
     answer = result["result"]
     sources = result.get("source_documents", [])
+
+    # 3. 유사도 함께 보기
+    for doc, score in docs_with_scores:
+        print(f"[{doc.metadata.get('title')}] - 유사도 점수: {score:.4f}")
+        print("내용 미리보기:", doc.page_content[:200])
+        print("---")
 
     source_links = []
 
@@ -102,8 +149,8 @@ def get_chat_response(query):
 
 # 테스트용 실행
 if __name__ == "__main__":
-    test_query = "귀어는 뭔가요?"
-    result = get_chat_response(test_query)
+    test_query = "양식장 관련해서 알려줘"  # 원문 그대로
+    result = get_chat_response(test_query)  # 내부에서 정규화되도록
 
     print("문서 source들:")
     for s in result["sources"]:

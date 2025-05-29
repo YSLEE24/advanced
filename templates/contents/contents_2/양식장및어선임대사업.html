@@ -1,40 +1,48 @@
-<!-- advanced/templates/contents/contents_1/양식장및어선임대산업.html-->
+<!-- advanced/templates/contents/contents_1/양식장및어선임대산업.html -->
 {% extends "contents/contents_base.html" %}
 
 {% block title %}
-양식장및어선임대산업
+양식장 및 어선 임대산업
 {% endblock %}
-  
 
 <div name="section">
     {% block content_title %}
     <h4 class="fw-bold text-primary mb-3">
-        2025년 양식장 임대 사업 안내
+        2025년 양식장 및 어선 임대 사업 안내
     </h4>
     <hr>
     {% endblock %}
 
     {% block content_body %}
-        <p hidden name="content_title">양식장및어선임대사업</p>
-
-        <div name="content_text">
-            <p>
-                2025년 양식장 임대 사업은 귀어·귀촌자 및 신규 양식업 진입자를 위한 정부 지원 제도입니다. 해양수산부 어촌양식정책과가 주관하고, 한국어촌어항공단 양식산업실이 실무를 맡아 운영합니다. 이 사업은 어촌 정착 기반을 마련하고 수산업 창업 진입장벽을 낮추기 위해 마련되었습니다.
-            </p>
-
-            <p>
-                지원 대상은 청년 어업인, 귀어희망자, 수산업 창업 예정자 등이며, 임대 기간은 통상 3년 이내입니다. 참여자는 사업계획서 작성, 수산물 생산계획 수립, 위생관리 기준 등을 충족해야 하며, 이를 바탕으로 심사를 거쳐 선정됩니다.
-            </p>
-
-            <p>
-                신청은 관할 시·군·구 또는 한국어촌어항공단을 통해 가능하며, 관련 서류와 절차는 사업지침에 따라 운영됩니다. 양식장 임대 사업은 수산업의 지속 가능성과 귀어 정책의 실효성을 높이기 위한 핵심 지원정책 중 하나입니다.
-            </p>
-        </div>
-
-        <p style="text-align: right; font-size: 0.8em; color: #666;">
-            출처: 
-            <a href="https://www.korea.kr" target="_blank" rel="noopener noreferrer">대한민국 정책브리핑</a>
+    <!-- 양식장 임대사업 -->
+    <p hidden name="content_title">양식장 임대사업</p>
+    <div name="content_text">
+        <h5 class="fw-semibold mt-4" style="color: #1a73e8;">양식장 임대사업</h5>
+        <p>
+            2025년 양식장 임대 사업은 귀어·귀촌자 및 신규 양식업 진입자를 위한 정부 지원 제도입니다. 해양수산부 어촌양식정책과가 주관하고, 한국어촌어항공단 양식산업실이 실무를 맡아 운영합니다.
+            <br><br>
+            지원 대상은 청년 어업인, 귀어희망자, 수산업 창업 예정자 등이며, 임대 기간은 통상 3년 이내입니다. 사업계획서와 수산물 생산계획, 위생관리 기준 등을 제출하여 심사를 거쳐 선정됩니다.
+            <br><br>
+            신청은 관할 시·군·구 또는 한국어촌어항공단을 통해 가능하며, 관련 서류와 절차는 사업지침에 따라 운영됩니다.
         </p>
-    {% endblock %}
+    </div>
 
+    <!-- 어선 임대사업 -->
+    <p hidden name="content_title">어선 임대사업</p>
+    <div name="content_text">
+        <h5 class="fw-semibold mt-4" style="color: #1a73e8;">어선 임대사업</h5>
+        <p>
+            어선 임대사업은 어업 창업 초기 자본 부담을 줄이고자 해양수산부가 지원하는 제도로, 특히 귀어를 희망하는 청년층과 신규 어업인에게 실질적인 어업 기회를 제공합니다.
+            <br><br>
+            한국어촌어항공단이 사업을 운영하며, 어선은 국비로 구입한 후 귀어자에게 일정 기간(최대 3년) 임대됩니다. 주요 대상은 어선어업 창업 예정자, 청년 귀어인, 수산계 고교·대학 졸업생 등입니다.
+            <br><br>
+            신청자는 어업허가 조건 및 안전교육, 조업계획서 등 필수 요건을 갖추어야 하며, 일정 심사 절차를 거쳐 선정됩니다.
+        </p>
+    </div>
+
+    <p style="text-align: right; font-size: 0.8em; color: #666;">
+        출처: 
+        <a href="https://www.sealife.go.kr" target="_blank" rel="noopener noreferrer">귀어귀촌 종합센터</a>
+    </p>
+    {% endblock %}
 </div>

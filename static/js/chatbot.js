@@ -48,9 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
           let answerHtml = `<div class="chat-message chat-bot">${data.response.replace(/\n/g, "<br>")}`;
 
           if (data.sources && data.sources.length > 0) {
-            const links = data.sources.map(
-              src => `<a href="${src.url}" target="_blank" class="chat-source-link">📎 ${src.title}</a>`
-            ).join("<br>");
+            const links = data.sources.map(src => {
+              const parts = src.url.split("/");
+              const pageName = parts[parts.length - 1]; // ⬅️ 여기서 pageName 정의!
+              return `<a href="${src.url}" target="_blank" class="chat-source-link">📎 ${pageName}</a>`;
+            }).join("<br>");;
             answerHtml += `<br><br>${links}`;
           }
 
