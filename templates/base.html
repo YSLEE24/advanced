@@ -120,22 +120,19 @@
         </a>
       </div>
       
-      <div class="chatbot-window" id="chatbotWindow">
-        <div class="chatbot-header">어부바 챗봇
-          <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
+        <!-- 챗봇 채팅창 -->
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                어부봇
+                <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
+            </div>
+            <div class="chatbot-body">
+                <p>안녕하세요! 무엇을 도와드릴까요?</p>
+            </div>
+            <div class="chatbot-input-container">
+                <input type="text" class="chatbot-input" placeholder="질문을 입력하세요..." />
+            </div>
         </div>
-        <div class="chatbot-body">
-          <div id="chatArea" class="chat-area">
-            <p>안녕하세요! 무엇을 도와드릴까요?</p>
-          </div>
-          <div class="chatbot-input-wrapper">
-            <input type="text" id="chatInput" placeholder="질문을 입력하세요..." class="chatbot-input" />
-            <button id="chatSendBtn" class="chatbot-send">보내기</button>
-          </div>
-        </div>
-      </div>
-      
-      <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
       
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
