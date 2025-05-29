@@ -78,3 +78,5 @@ def extract_and_save_faiss(base_dir="templates/contents", out_path="faiss_store/
 # ✅ 스크립트 직접 실행 시
 if __name__ == "__main__":
     extract_and_save_faiss()
+
+##
