@@ -24,7 +24,7 @@ vectordb = FAISS.load_local(
 
 # Retriever 생성
 retriever = vectordb.as_retriever(
-    search_type="mmr",
+    search_type="similarity",
     search_kwargs={"k": 5}
 )
 
