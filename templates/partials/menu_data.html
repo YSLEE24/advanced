@@ -53,13 +53,10 @@
         <li><a class="dropdown-item {{ 'active fw-bold text-primary' if page == '어업종류_etc' }}" href="{{ url_for('main.section', folder='contents_5', page='어업종류_etc') }}">- 기타</a></li>
     </ul> -->
     <a class="dropdown-item {{ 'active fw-bold text-primary' if page == '지역별주력어종' }}" href="{{ url_for('main.section', folder='contents_5', page='지역별주력어종') }}">- 지역별 주력 어종</a>
-    <a class="dropdown-item" href="#">- 낚시 및 해루질</a>
-    <ul class="list-unstyled ms-3">
-        <li><a class="dropdown-item {{ 'active fw-bold text-primary' if page == '낚시및해루질_종류별낚시설명및초보자팁' }}" href="{{ url_for('main.section', folder='contents_5', page='낚시및해루질_종류별낚시설명및초보자팁') }}">- 종류별 낚시 설명 및 초보자 팁</a></li>
-        <li><a class="dropdown-item {{ 'active fw-bold text-primary' if page == '낚시및해루질_낚시금지구역' }}" href="{{ url_for('main.section', folder='contents_5', page='낚시및해루질_낚시금지구역') }}">- 낚시 금지구역</a></li>
-        <li><a class="dropdown-item {{ 'active fw-bold text-primary' if page == '낚시및해루질_금어기' }}" href="{{ url_for('main.section', folder='contents_5', page='낚시및해루질_금어기') }}">- 금어기</a></li>
-        <li><a class="dropdown-item {{ 'active fw-bold text-primary' if page == '낚시및해루질_지역별낚시명소' }}" href="{{ url_for('main.section', folder='contents_5', page='낚시및해루질_지역별낚시명소') }}">- 지역별 낚시 명소</a></li>
-        <li><a class="dropdown-item {{ 'active fw-bold text-primary' if page == '낚시및해루질_지역별낚시용품점' }}" href="{{ url_for('main.section', folder='contents_5', page='낚시및해루질_지역별낚시용품점') }}">- 지역별 낚시용품점</a></li>
-    </ul>
+    <a class="dropdown-item {{ 'active fw-bold text-primary' if page == '종류별낚시설명' }}" href="{{ url_for('main.section', folder='contents_5', page='종류별낚시설명') }}">- 종류별 낚시 설명</a>
+    <a class="dropdown-item {{ 'active fw-bold text-primary' if page == '낚시금지구역' }}" href="{{ url_for('main.section', folder='contents_5', page='낚시금지구역') }}">- 낚시 금지구역</a>
+    <a class="dropdown-item {{ 'active fw-bold text-primary' if page == '금어기및금지체장' }}" href="{{ url_for('main.section', folder='contents_5', page='금어기및금지체장') }}">- 금어기 및 금지체장</a>
+    <a class="dropdown-item {{ 'active fw-bold text-primary' if page == '지역별낚시명소' }}" href="{{ url_for('main.section', folder='contents_5', page='지역별낚시명소') }}">- 지역별 낚시명소</a>
+    <a class="dropdown-item {{ 'active fw-bold text-primary' if page == '지역별낚시산업' }}" href="{{ url_for('main.section', folder='contents_5', page='지역별낚시산업') }}">- 지역별 낚시산업</a>
 </div>
 {% endif %}
