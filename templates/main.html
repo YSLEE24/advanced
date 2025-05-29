@@ -97,6 +97,7 @@
         </div>
     </section>
 
+
     </main>
     <!-- Footer -->
     <footer class="py-1 text-white text-center">
@@ -104,6 +105,30 @@
             <small>© 2025 어촌포털. All rights reserved.</small>
         </div>
     </footer>
+
+    <!-- 챗봇 아이콘 + 말풍선 -->
+    <div class="chatbot-fab-wrapper">
+        <div class="chatbot-tooltip">
+            <strong>"궁금한 점을 물어보세요!"<br>- 어부봇&nbsp;&nbsp;</strong>
+        </div>
+        <a class="chatbot-fab" id="chatbotToggleBtn">
+            <img src="{{ url_for('static', filename='images/chatbot_icon.png') }}" alt="챗봇" class="chatbot-icon">
+        </a>
+    </div>
+
+    <!-- 챗봇 채팅창 -->
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            어부봇
+            <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
+        </div>
+        <div class="chatbot-body">
+            <p>안녕하세요! 귀어귀촌 관련 정보를 안내해드려요.</p>
+        </div>
+        <div class="chatbot-input-container">
+            <input type="text" class="chatbot-input" placeholder="질문을 입력하세요..." />
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
